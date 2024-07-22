@@ -1,0 +1,6 @@
+struct Cv2xData
+{
+	unsigned long len;
+    octet src_id[3];
+	sequence <octet> msg;
+};
