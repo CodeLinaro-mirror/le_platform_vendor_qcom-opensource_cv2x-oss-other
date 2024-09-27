@@ -166,7 +166,7 @@ public:
      * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
      * will be set.
      */
-    virtual void createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info = nullptr);
+    virtual void createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info = nullptr);
     /**
      * Calls createTxEventFlow with asynchronous semantics.
      *
@@ -177,7 +177,7 @@ public:
      * The std::future returned by this method will be fulfilled at arrival of the reply.
      * It will provide the same value for CallStatus as will be handed to the callback.
      */
-    virtual std::future<CommonAPI::CallStatus> createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    virtual std::future<CommonAPI::CallStatus> createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_flowInfo, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
     /**
      * Calls closeRxSubscription with synchronous semantics.
      *
@@ -434,16 +434,16 @@ std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::crea
     return delegate_->createTxSpsFlowAsync(_ipType, _serviceId, _spsInfo, _spsSrcPort, _eventSrcPortValid, _eventSrcPort, _callback, _info);
 }
 template <typename ... _AttributeExtensions>
-void Cv2xRadioProxy<_AttributeExtensions...>::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info) {
+void Cv2xRadioProxy<_AttributeExtensions...>::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info) {
     if (!_ipTyp.validate()) {
         _internalCallStatus = CommonAPI::CallStatus::INVALID_VALUE;
         return;
     }
-    delegate_->createTxEventFlow(_ipTyp, _serviceId, _eventSrcPort, _internalCallStatus, _error, _txEventFlowId, _info);
+    delegate_->createTxEventFlow(_ipTyp, _serviceId, _flowInfo, _eventSrcPort, _internalCallStatus, _error, _txEventFlowId, _info);
 }
 
 template <typename ... _AttributeExtensions>
-std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_flowInfo, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
     if (!_ipTyp.validate()) {
         ::v1::commonapi::telux::common::CommonDefines::ErrorCode error;
         uint32_t txEventFlowId = 0ul;
@@ -452,7 +452,7 @@ std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::crea
         promise.set_value(CommonAPI::CallStatus::INVALID_VALUE);
         return promise.get_future();
     }
-    return delegate_->createTxEventFlowAsync(_ipTyp, _serviceId, _eventSrcPort, _callback, _info);
+    return delegate_->createTxEventFlowAsync(_ipTyp, _serviceId, _flowInfo, _eventSrcPort, _callback, _info);
 }
 template <typename ... _AttributeExtensions>
 void Cv2xRadioProxy<_AttributeExtensions...>::closeRxSubscription(uint32_t _subscriptionId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {

@@ -87,9 +87,9 @@ public:
 
     virtual std::future<CommonAPI::CallStatus> createTxSpsFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipType, const uint32_t &_serviceId, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SpsFlowInfo &_spsInfo, const uint16_t &_spsSrcPort, const bool &_eventSrcPortValid, const uint16_t &_eventSrcPort, CreateTxSpsFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info);
 
-    virtual void createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info);
+    virtual void createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info);
 
-    virtual std::future<CommonAPI::CallStatus> createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+    virtual std::future<CommonAPI::CallStatus> createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_flowInfo, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info);
 
     virtual void closeRxSubscription(uint32_t _subscriptionId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
 

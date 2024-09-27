@@ -90,9 +90,9 @@ typedef CommonAPI::SomeIP::StructDeployment<
     CommonAPI::EmptyDeployment,
     CommonAPI::EmptyDeployment,
     CommonAPI::EmptyDeployment,
+    CommonAPI::SomeIP::IntegerDeployment<int32_t>,
     CommonAPI::EmptyDeployment,
-    CommonAPI::EmptyDeployment,
-    CommonAPI::EmptyDeployment,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
     CommonAPI::EmptyDeployment,
     CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
     CommonAPI::EmptyDeployment
