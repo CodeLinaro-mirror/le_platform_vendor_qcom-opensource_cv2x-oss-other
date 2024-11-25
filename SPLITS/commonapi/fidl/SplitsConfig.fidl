@@ -1,0 +1,100 @@
+/*
+ *Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ *SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+package commonapi.SPLITS
+import commonapi.telux.common.* from "common.fidl"
+
+interface SplitsConfig{
+    version {major 1 minor 0}
+    struct TxFlow {
+        UInt32 Source
+        UInt32 Format
+        UInt32 ServiceId
+        UInt32 Periodicity
+        UInt16 SourcePort
+        UInt16 DestPort
+        String DestAddr
+    }
+    struct RxFlow {
+        UInt32 ServiceId
+        UInt16 ReceivePort
+    }
+    struct CoreConfig {
+        Int32 ProcPriority
+        Boolean WildCardRx
+        Int32 Role
+        TxFlow[] SpsFlows
+        TxFlow[] EventFlows
+        RxFlow[] RxFlows
+        Boolean enableLocationFixes
+        UInt16 LocationInterval
+        UInt32 VehicleDataSource
+        Boolean EnableSecurity
+        Boolean EnableCongCtrl
+        Boolean EnableWra
+        Boolean EnableRTCM
+    }
+    struct SecurityConfig {
+        String securityCtxName
+        UInt16 countryCode
+        String localCertMgrName
+        Boolean enableConsistency
+        Boolean enableRelevance
+        Boolean setGenLocation
+        UInt32 psidValue
+        Boolean enableSsp
+        UInt8[] sspValue
+        UInt32 sspLength
+        Boolean enableSspMask
+        UInt8[] sspMask
+        UInt32 sspMaskLength
+        Boolean enableL2FloodDetect
+        Float mvmUtilThresh
+    }
+
+    struct CongCtrlConfig {
+        UInt32 vMinItt
+        UInt32 vMaxItt
+        UInt32 vPerInterval
+        UInt32 vPerSubInterval
+        Float vDensityWeightFactor
+        Float vDensityCoefficient
+        Float vDensityMinPerRange
+        Boolean enableSpsEnhancements
+        UInt32 txCtrlInterval
+    }
+    struct WraConfig{
+        UInt32 serviceId
+        UInt32 wraInterval
+        UInt32 routerLifetime
+        UInt8[] ipPrefix
+        UInt32 ipPrefixLength
+        UInt8[] defaultGateway
+        UInt8[] primaryDns
+    }
+    struct RTCMConfig {
+        Boolean NtripOnEAP
+        UInt32 nmeaGGAInterval
+        String hostName
+        UInt16 port
+        String userNamePwdInBase64Format
+        String mountPoint
+    }
+
+    struct SplitsConfigData {
+        CoreConfig coreConfig
+        SecurityConfig secConfig
+        CongCtrlConfig congCtrlConfig
+        WraConfig wraConfig
+        RTCMConfig rtcmConfig
+    }
+    method readConfig {
+        out {
+            SplitsConfigData config
+        }
+        error commonapi.telux.common.CommonDefines.ErrorCode
+    }
+}
+
+

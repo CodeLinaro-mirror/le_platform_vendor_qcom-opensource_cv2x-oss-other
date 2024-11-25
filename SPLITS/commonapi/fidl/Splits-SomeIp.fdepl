@@ -1,0 +1,57 @@
+/*
+ *Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ *SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-4-SOMEIP_deployment_spec.fdepl"
+import "SplitsConfig.fidl"
+import "VehicleData.fidl"
+
+define org.genivi.commonapi.someip.deployment for interface commonapi.SPLITS.SplitsConfig {
+    SomeIpServiceID = 4680
+
+    method readConfig {
+        SomeIpMethodID = 30200
+        SomeIpReliable = false
+    }
+}
+define org.genivi.commonapi.someip.deployment for interface commonapi.SPLITS.VehicleData {
+    SomeIpServiceID = 4681
+
+    method getStaticVehicleParameters {
+        SomeIpMethodID = 30202
+        SomeIpReliable = false
+        out {
+        }
+    }
+    broadcast dynamicVehicleState {
+        SomeIpEventID = 32800
+        SomeIpEventGroups = {32801}
+
+    out {
+        }
+    }
+    broadcast highResolutionMotion{
+        SomeIpEventID = 32801
+        SomeIpEventGroups = {32801}
+        out {
+        }
+    }
+}
+
+define org.genivi.commonapi.someip.deployment for provider as Service {
+    instance commonapi.SPLITS.SplitsConfig {
+        InstanceId = "commonapi.SPLITS.SplitsConfig"
+        SomeIpInstanceID = 22136
+        SomeIpUnicastAddress = "192.168.0.2"
+        SomeIpReliableUnicastPort = 30499
+        SomeIpUnreliableUnicastPort = 30499
+    }
+    instance commonapi.SPLITS.VehicleData {
+        InstanceId = "commonapi.SPLITS.VehicleData"
+        SomeIpInstanceID = 22137
+        SomeIpUnicastAddress = "192.168.0.2"
+        SomeIpReliableUnicastPort = 30499
+        SomeIpUnreliableUnicastPort = 30499
+    }
+}
+

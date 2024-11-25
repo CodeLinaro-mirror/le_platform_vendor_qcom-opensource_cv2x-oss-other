@@ -1,0 +1,104 @@
+/*
+ *Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ *SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+
+package commonapi.SPLITS
+import commonapi.telux.common.* from "common.fidl"
+
+interface VehicleData {
+    version {major 1 minor 0}
+
+    enumeration v2x_TransmissionState_enum {
+        V2X_TRANSMISSION_NEUTRAL
+        V2X_TRANSMISSION_PARK = 1
+        V2X_TRANSMISSION_FORWARD_GEARS
+        V2X_TRANSMISSION_REVERSE_GEARS
+        V2X_TRANSMISSION_RESERVED1
+        V2X_TRANSMISSION_RESERVED2
+        V2X_TRANSMISSION_RESERVED3
+        V2X_TRANSMISSION_UNAVAILABLE
+    }
+    enumeration v2x_BrakeBoostApplied_enum {
+        V2X_BRAKEBOOST_UNAVAIL
+        V2X_BRAKEBOOST_OFF
+        V2X_BRAKEBOOST_ON
+    }
+    enumeration v2x_TractionControlStatus_enum {
+        V2X_TRACTION_CTRL_UNAVAIL
+        V2X_TRACTION_CTRL_OFF
+        V2X_TRACTION_CTRL_ON
+        V2X_TRACTION_CTRL_ENGAGED
+    }
+    enumeration v2x_AntiLockBrakeStatus_enum {
+        V2X_ABS_UNAVAIL
+        V2X_ABS_OFFOff
+        V2X_ABS_ON
+        V2X_ABS_ENGAGED
+    }
+    enumeration v2x_StabilityControlStatus_enum {
+        V2X_STABILITY_CONTROL_UNAVAILBLE
+        V2X_STABILITY_CONTROL_OFF
+        V2X_STABILITY_CONTROL_ON
+        V2X_STABILITY_CONTROL_ENGAGED
+    }
+    enumeration v2x_AuxBrakeStatus_enum {
+        V2X_AUX_BRAKE_UNAVAILBLE
+        V2X_AUX_BRAKE_OFF
+        V2X_AUX_BRAKE_ON
+        V2X_AUX_BRAKE_RESERVED
+    }
+    typedef vehicleControlStatus is UInt16
+
+    typedef vehicleEventFlags is UInt16
+
+    typedef exteriorLights is UInt16
+
+    struct dynamicVehicleState {
+        v2x_TransmissionState_enum transmission
+        vehicleEventFlags events
+        UInt8 throttlePosition
+        UInt8 throttleConfidenc
+        Int16 steeringWheelAngle
+        vehicleControlStatus brakeStatus
+        exteriorLights lights
+        UInt8 frontWiperStatus
+        UInt8 rearWiperStatus
+    }
+
+    struct staticVehicleParameters {
+        Int16 vehicle_height_cm
+        Int16 vehicle_width_cm
+        Int16 vehicle_length_cm
+        Int16 front_bumper_height_cm
+        Int16 rear_bumper_height_cm
+        Int16 vehicle_mass_kg
+        Int16 trailer_weight_kg
+        String make
+        String model_name
+        UInt16 begin_model_year
+        UInt16 end_model_year
+    }
+    struct highResolutionMotion {
+        Double speed
+        Double longitudinalAcceleration
+        Double yawRate
+    }
+
+    broadcast dynamicVehicleState {
+        out {
+            commonapi.SPLITS.VehicleData.dynamicVehicleState vhicleState
+        }
+    }
+    broadcast highResolutionMotion {
+        out {
+            commonapi.SPLITS.VehicleData.highResolutionMotion motion
+        }
+    }
+    method getStaticVehicleParameters {
+        out {
+            commonapi.SPLITS.VehicleData.staticVehicleParameters param
+        }
+        error commonapi.telux.common.CommonDefines.ErrorCode
+    }
+}
