@@ -81,6 +81,26 @@ public:
 
     virtual std::future<CommonAPI::CallStatus> requestCv2xStatusExAsync(RequestCv2xStatusExAsyncCallback _callback, const CommonAPI::CallInfo *_info);
 
+    virtual void setPeakTxPower(int8_t _txPower, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> setPeakTxPowerAsync(const int8_t &_txPower, SetPeakTxPowerAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void setL2Filters(std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > _filterList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> setL2FiltersAsync(const std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > &_filterList, SetL2FiltersAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void removeL2Filters(std::vector< uint32_t > _l2IdList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> removeL2FiltersAsync(const std::vector< uint32_t > &_l2IdList, RemoveL2FiltersAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void getSlssRxInfo(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo &_slssRxInfo, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> getSlssRxInfoAsync(GetSlssRxInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void injectCoarseUtcTime(uint64_t _utc, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> injectCoarseUtcTimeAsync(const uint64_t &_utc, InjectCoarseUtcTimeAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
     virtual void getOwnVersion(uint16_t &_major, uint16_t &_minor) const;
 
     virtual std::future<void> getCompletionFuture();

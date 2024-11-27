@@ -181,6 +181,110 @@ public:
      * It will provide the same value for CallStatus as will be handed to the callback.
      */
     virtual std::future<CommonAPI::CallStatus> requestCv2xStatusExAsync(RequestCv2xStatusExAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setPeakTxPower with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void setPeakTxPower(int8_t _txPower, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setPeakTxPower with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> setPeakTxPowerAsync(const int8_t &_txPower, SetPeakTxPowerAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setL2Filters with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void setL2Filters(std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > _filterList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setL2Filters with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> setL2FiltersAsync(const std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > &_filterList, SetL2FiltersAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls removeL2Filters with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void removeL2Filters(std::vector< uint32_t > _l2IdList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls removeL2Filters with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> removeL2FiltersAsync(const std::vector< uint32_t > &_l2IdList, RemoveL2FiltersAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getSlssRxInfo with synchronous semantics.
+     *
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void getSlssRxInfo(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo &_slssRxInfo, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getSlssRxInfo with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> getSlssRxInfoAsync(GetSlssRxInfoAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls injectCoarseUtcTime with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void injectCoarseUtcTime(uint64_t _utc, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls injectCoarseUtcTime with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> injectCoarseUtcTimeAsync(const uint64_t &_utc, InjectCoarseUtcTimeAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
 
 
 
@@ -249,6 +353,51 @@ void Cv2xRadioManagerProxy<_AttributeExtensions...>::requestCv2xStatusEx(CommonA
 template <typename ... _AttributeExtensions>
 std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::requestCv2xStatusExAsync(RequestCv2xStatusExAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
     return delegate_->requestCv2xStatusExAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioManagerProxy<_AttributeExtensions...>::setPeakTxPower(int8_t _txPower, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info) {
+    delegate_->setPeakTxPower(_txPower, _internalCallStatus, _error, _status, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::setPeakTxPowerAsync(const int8_t &_txPower, SetPeakTxPowerAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->setPeakTxPowerAsync(_txPower, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioManagerProxy<_AttributeExtensions...>::setL2Filters(std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > _filterList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info) {
+    delegate_->setL2Filters(_filterList, _internalCallStatus, _error, _status, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::setL2FiltersAsync(const std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > &_filterList, SetL2FiltersAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->setL2FiltersAsync(_filterList, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioManagerProxy<_AttributeExtensions...>::removeL2Filters(std::vector< uint32_t > _l2IdList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info) {
+    delegate_->removeL2Filters(_l2IdList, _internalCallStatus, _error, _status, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::removeL2FiltersAsync(const std::vector< uint32_t > &_l2IdList, RemoveL2FiltersAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->removeL2FiltersAsync(_l2IdList, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioManagerProxy<_AttributeExtensions...>::getSlssRxInfo(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo &_slssRxInfo, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info) {
+    delegate_->getSlssRxInfo(_internalCallStatus, _error, _slssRxInfo, _status, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::getSlssRxInfoAsync(GetSlssRxInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->getSlssRxInfoAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioManagerProxy<_AttributeExtensions...>::injectCoarseUtcTime(uint64_t _utc, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info) {
+    delegate_->injectCoarseUtcTime(_utc, _internalCallStatus, _error, _status, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioManagerProxy<_AttributeExtensions...>::injectCoarseUtcTimeAsync(const uint64_t &_utc, InjectCoarseUtcTimeAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->injectCoarseUtcTimeAsync(_utc, _callback, _info);
 }
 
 template <typename ... _AttributeExtensions>

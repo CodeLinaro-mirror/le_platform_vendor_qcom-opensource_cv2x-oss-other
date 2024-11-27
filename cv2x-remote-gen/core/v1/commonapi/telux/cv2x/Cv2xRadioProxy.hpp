@@ -300,6 +300,206 @@ public:
      */
     virtual std::future<CommonAPI::CallStatus> requestCapabilityAsync(RequestCapabilityAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
     /**
+     * Calls requestDataSessionSettings with synchronous semantics.
+     *
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void requestDataSessionSettings(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings &_settings, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls requestDataSessionSettings with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> requestDataSessionSettingsAsync(RequestDataSessionSettingsAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls updateSrcL2Info with synchronous semantics.
+     *
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void updateSrcL2Info(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls updateSrcL2Info with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> updateSrcL2InfoAsync(UpdateSrcL2InfoAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls updateTrustedUEList with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void updateTrustedUEList(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList _infoList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls updateTrustedUEList with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> updateTrustedUEListAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList &_infoList, UpdateTrustedUEListAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getIfaceNameFromIpType with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void getIfaceNameFromIpType(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, std::string &_ifaceNameIp, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getIfaceNameFromIpType with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> getIfaceNameFromIpTypeAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipType, GetIfaceNameFromIpTypeAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls createCv2xTcpSocket with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void createCv2xTcpSocket(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo _socketInfo, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls createCv2xTcpSocket with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> createCv2xTcpSocketAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_eventFlowInfo, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo &_socketInfo, CreateCv2xTcpSocketAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls closeCv2xTcpSocket with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void closeCv2xTcpSocket(uint32_t _sockId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls closeCv2xTcpSocket with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> closeCv2xTcpSocketAsync(const uint32_t &_sockId, CloseCv2xTcpSocketAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setGlobalIPInfo with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void setGlobalIPInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType _ipv6Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setGlobalIPInfo with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> setGlobalIPInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType &_ipv6Addr, SetGlobalIPInfoAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setGlobalIPUnicastRoutingInfo with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void setGlobalIPUnicastRoutingInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo _destL2Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls setGlobalIPUnicastRoutingInfo with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> setGlobalIPUnicastRoutingInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo &_destL2Addr, SetGlobalIPUnicastRoutingInfoAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getCapabilities with synchronous semantics.
+     *
+     * All non-const parameters will be filled with the returned values.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void getCapabilities(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities &_capabilities, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls getCapabilities with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> getCapabilitiesAsync(GetCapabilitiesAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls injectVehicleSpeed with synchronous semantics.
+     *
+     * All const parameters are input parameters to this method.
+     * The CallStatus will be filled when the method returns and indicate either
+     * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
+     * will be set.
+     */
+    virtual void injectVehicleSpeed(uint32_t _speed, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr);
+    /**
+     * Calls injectVehicleSpeed with asynchronous semantics.
+     *
+     * The provided callback will be called when the reply to this call arrives or
+     * an error occurs during the call. The CallStatus will indicate either "SUCCESS"
+     * or which type of error has occurred. In case of any error, ONLY the CallStatus
+     * will have a defined value.
+     * The std::future returned by this method will be fulfilled at arrival of the reply.
+     * It will provide the same value for CallStatus as will be handed to the callback.
+     */
+    virtual std::future<CommonAPI::CallStatus> injectVehicleSpeedAsync(const uint32_t &_speed, InjectVehicleSpeedAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    /**
      * Returns the wrapper class that provides access to the broadcast currentCv2xStatus.
      */
     virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent() {
@@ -507,6 +707,108 @@ void Cv2xRadioProxy<_AttributeExtensions...>::requestCapability(CommonAPI::CallS
 template <typename ... _AttributeExtensions>
 std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::requestCapabilityAsync(RequestCapabilityAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
     return delegate_->requestCapabilityAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::requestDataSessionSettings(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings &_settings, const CommonAPI::CallInfo *_info) {
+    delegate_->requestDataSessionSettings(_internalCallStatus, _error, _settings, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::requestDataSessionSettingsAsync(RequestDataSessionSettingsAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->requestDataSessionSettingsAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::updateSrcL2Info(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->updateSrcL2Info(_internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::updateSrcL2InfoAsync(UpdateSrcL2InfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->updateSrcL2InfoAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::updateTrustedUEList(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList _infoList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->updateTrustedUEList(_infoList, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::updateTrustedUEListAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList &_infoList, UpdateTrustedUEListAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->updateTrustedUEListAsync(_infoList, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::getIfaceNameFromIpType(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, std::string &_ifaceNameIp, const CommonAPI::CallInfo *_info) {
+    if (!_ipType.validate()) {
+        _internalCallStatus = CommonAPI::CallStatus::INVALID_VALUE;
+        return;
+    }
+    delegate_->getIfaceNameFromIpType(_ipType, _internalCallStatus, _error, _ifaceNameIp, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::getIfaceNameFromIpTypeAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipType, GetIfaceNameFromIpTypeAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    if (!_ipType.validate()) {
+        ::v1::commonapi::telux::common::CommonDefines::ErrorCode error;
+        std::string ifaceNameIp = "";
+        _callback(CommonAPI::CallStatus::INVALID_VALUE, error, ifaceNameIp);
+        std::promise<CommonAPI::CallStatus> promise;
+        promise.set_value(CommonAPI::CallStatus::INVALID_VALUE);
+        return promise.get_future();
+    }
+    return delegate_->getIfaceNameFromIpTypeAsync(_ipType, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::createCv2xTcpSocket(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo _socketInfo, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->createCv2xTcpSocket(_eventFlowInfo, _socketInfo, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::createCv2xTcpSocketAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_eventFlowInfo, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo &_socketInfo, CreateCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->createCv2xTcpSocketAsync(_eventFlowInfo, _socketInfo, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::closeCv2xTcpSocket(uint32_t _sockId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->closeCv2xTcpSocket(_sockId, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::closeCv2xTcpSocketAsync(const uint32_t &_sockId, CloseCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->closeCv2xTcpSocketAsync(_sockId, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::setGlobalIPInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType _ipv6Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->setGlobalIPInfo(_ipv6Addr, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::setGlobalIPInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType &_ipv6Addr, SetGlobalIPInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->setGlobalIPInfoAsync(_ipv6Addr, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::setGlobalIPUnicastRoutingInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo _destL2Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->setGlobalIPUnicastRoutingInfo(_destL2Addr, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::setGlobalIPUnicastRoutingInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo &_destL2Addr, SetGlobalIPUnicastRoutingInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->setGlobalIPUnicastRoutingInfoAsync(_destL2Addr, _callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::getCapabilities(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities &_capabilities, const CommonAPI::CallInfo *_info) {
+    delegate_->getCapabilities(_internalCallStatus, _error, _capabilities, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::getCapabilitiesAsync(GetCapabilitiesAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->getCapabilitiesAsync(_callback, _info);
+}
+template <typename ... _AttributeExtensions>
+void Cv2xRadioProxy<_AttributeExtensions...>::injectVehicleSpeed(uint32_t _speed, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    delegate_->injectVehicleSpeed(_speed, _internalCallStatus, _error, _info);
+}
+
+template <typename ... _AttributeExtensions>
+std::future<CommonAPI::CallStatus> Cv2xRadioProxy<_AttributeExtensions...>::injectVehicleSpeedAsync(const uint32_t &_speed, InjectVehicleSpeedAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->injectVehicleSpeedAsync(_speed, _callback, _info);
 }
 
 template <typename ... _AttributeExtensions>

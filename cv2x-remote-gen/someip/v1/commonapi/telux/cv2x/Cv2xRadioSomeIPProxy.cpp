@@ -943,6 +943,596 @@ std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::requestCapabilityAsync(
         std::make_tuple(deploy_error, deploy_capabilities));
 }
 
+void Cv2xRadioSomeIPProxy::requestDataSessionSettings(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings &_settings, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t> deploy_settings(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x759f),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        _internalCallStatus,
+        deploy_error,
+        deploy_settings);
+    _error = deploy_error.getValue();
+    _settings = deploy_settings.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::requestDataSessionSettingsAsync(RequestDataSessionSettingsAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t> deploy_settings(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x759f),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t > _settings) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue(), _settings.getValue());
+        },
+        std::make_tuple(deploy_error, deploy_settings));
+}
+
+void Cv2xRadioSomeIPProxy::updateSrcL2Info(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a0),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::updateSrcL2InfoAsync(UpdateSrcL2InfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a0),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::updateTrustedUEList(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList _infoList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t> deploy_infoList(_infoList, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a1),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_infoList,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::updateTrustedUEListAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList &_infoList, UpdateTrustedUEListAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t> deploy_infoList(_infoList, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a1),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_infoList,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::getIfaceNameFromIpType(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, std::string &_ifaceNameIp, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t> deploy_ipType(_ipType, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr));
+    CommonAPI::Deployable< std::string, CommonAPI::SomeIP::StringDeployment> deploy_ifaceNameIp(static_cast< CommonAPI::SomeIP::StringDeployment* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                std::string,
+                CommonAPI::SomeIP::StringDeployment
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a2),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_ipType,
+        _internalCallStatus,
+        deploy_error,
+        deploy_ifaceNameIp);
+    _error = deploy_error.getValue();
+    _ifaceNameIp = deploy_ifaceNameIp.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::getIfaceNameFromIpTypeAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipType, GetIfaceNameFromIpTypeAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t> deploy_ipType(_ipType, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr));
+    CommonAPI::Deployable< std::string, CommonAPI::SomeIP::StringDeployment> deploy_ifaceNameIp(static_cast< CommonAPI::SomeIP::StringDeployment* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                std::string,
+                CommonAPI::SomeIP::StringDeployment
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a2),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_ipType,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error, CommonAPI::Deployable< std::string, CommonAPI::SomeIP::StringDeployment > _ifaceNameIp) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue(), _ifaceNameIp.getValue());
+        },
+        std::make_tuple(deploy_error, deploy_ifaceNameIp));
+}
+
+void Cv2xRadioSomeIPProxy::createCv2xTcpSocket(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo _socketInfo, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t> deploy_eventFlowInfo(_eventFlowInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t> deploy_socketInfo(_socketInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a3),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_eventFlowInfo, deploy_socketInfo,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createCv2xTcpSocketAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_eventFlowInfo, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo &_socketInfo, CreateCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t> deploy_eventFlowInfo(_eventFlowInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t> deploy_socketInfo(_socketInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a3),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_eventFlowInfo, deploy_socketInfo,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::closeCv2xTcpSocket(uint32_t _sockId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_sockId(_sockId, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                uint32_t,
+                CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a4),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_sockId,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::closeCv2xTcpSocketAsync(const uint32_t &_sockId, CloseCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_sockId(_sockId, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                uint32_t,
+                CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a4),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_sockId,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::setGlobalIPInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType _ipv6Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t> deploy_ipv6Addr(_ipv6Addr, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a5),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_ipv6Addr,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::setGlobalIPInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType &_ipv6Addr, SetGlobalIPInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t> deploy_ipv6Addr(_ipv6Addr, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a5),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_ipv6Addr,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::setGlobalIPUnicastRoutingInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo _destL2Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t> deploy_destL2Addr(_destL2Addr, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a6),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_destL2Addr,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::setGlobalIPUnicastRoutingInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo &_destL2Addr, SetGlobalIPUnicastRoutingInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t> deploy_destL2Addr(_destL2Addr, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a6),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_destL2Addr,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
+void Cv2xRadioSomeIPProxy::getCapabilities(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities &_capabilities, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t> deploy_capabilities(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a7),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        _internalCallStatus,
+        deploy_error,
+        deploy_capabilities);
+    _error = deploy_error.getValue();
+    _capabilities = deploy_capabilities.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::getCapabilitiesAsync(GetCapabilitiesAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t> deploy_capabilities(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a7),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t > _capabilities) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue(), _capabilities.getValue());
+        },
+        std::make_tuple(deploy_error, deploy_capabilities));
+}
+
+void Cv2xRadioSomeIPProxy::injectVehicleSpeed(uint32_t _speed, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_speed(_speed, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                uint32_t,
+                CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodWithReply(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a8),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_speed,
+        _internalCallStatus,
+        deploy_error);
+    _error = deploy_error.getValue();
+}
+
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::injectVehicleSpeedAsync(const uint32_t &_speed, InjectVehicleSpeedAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
+    CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_speed(_speed, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    return CommonAPI::SomeIP::ProxyHelper<
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                uint32_t,
+                CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >
+        >,
+        CommonAPI::SomeIP::SerializableArguments<
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::common::CommonDefines::ErrorCode,
+                ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t
+            >
+        >
+    >::callMethodAsync(
+        *this,
+        CommonAPI::SomeIP::method_id_t(0x75a8),
+        false,
+        false,
+        (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
+        deploy_speed,
+        [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error) {
+            if (_callback)
+                _callback(_internalCallStatus, _deploy_error.getValue());
+        },
+        std::make_tuple(deploy_error));
+}
+
 void Cv2xRadioSomeIPProxy::getOwnVersion(uint16_t& ownVersionMajor, uint16_t& ownVersionMinor) const {
     ownVersionMajor = 1;
     ownVersionMinor = 0;

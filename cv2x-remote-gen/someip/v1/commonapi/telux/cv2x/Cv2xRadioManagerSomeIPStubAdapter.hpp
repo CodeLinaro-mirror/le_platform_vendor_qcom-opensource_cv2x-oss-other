@@ -111,6 +111,46 @@ public:
         std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t>
     > requestCv2xStatusExStubDispatcher;
     
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioManagerStub,
+        std::tuple< int8_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines::Status>,
+        std::tuple< CommonAPI::SomeIP::IntegerDeployment<int8_t>>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t>
+    > setPeakTxPowerStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioManagerStub,
+        std::tuple< std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo >>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines::Status>,
+        std::tuple< CommonAPI::SomeIP::ArrayDeployment< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::L2FilterInfoDeployment_t >>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t>
+    > setL2FiltersStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioManagerStub,
+        std::tuple< std::vector< uint32_t >>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines::Status>,
+        std::tuple< CommonAPI::SomeIP::ArrayDeployment< CommonAPI::SomeIP::IntegerDeployment<uint32_t> >>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t>
+    > removeL2FiltersStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioManagerStub,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo, ::v1::commonapi::telux::common::CommonDefines::Status>,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SlssRxInfoDeployment_t, ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t>
+    > getSlssRxInfoStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioManagerStub,
+        std::tuple< uint64_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines::Status>,
+        std::tuple< CommonAPI::SomeIP::IntegerDeployment<uint64_t>>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t>
+    > injectCoarseUtcTimeStubDispatcher;
+    
     Cv2xRadioManagerSomeIPStubAdapterInternal(
         const CommonAPI::SomeIP::Address &_address,
         const std::shared_ptr<CommonAPI::SomeIP::ProxyConnection> &_connection,
@@ -157,12 +197,57 @@ public:
             std::make_tuple(),
             std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr)))
         
+        ,
+        setPeakTxPowerStubDispatcher(
+            &Cv2xRadioManagerStub::setPeakTxPower,
+            false,
+            _stub->hasElement(6),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<int8_t>* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t* >(nullptr)))
+        
+        ,
+        setL2FiltersStubDispatcher(
+            &Cv2xRadioManagerStub::setL2Filters,
+            false,
+            _stub->hasElement(7),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::ArrayDeployment< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::L2FilterInfoDeployment_t >* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t* >(nullptr)))
+        
+        ,
+        removeL2FiltersStubDispatcher(
+            &Cv2xRadioManagerStub::removeL2Filters,
+            false,
+            _stub->hasElement(8),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::ArrayDeployment< CommonAPI::SomeIP::IntegerDeployment<uint32_t> >* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t* >(nullptr)))
+        
+        ,
+        getSlssRxInfoStubDispatcher(
+            &Cv2xRadioManagerStub::getSlssRxInfo,
+            false,
+            _stub->hasElement(9),
+            std::make_tuple(),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SlssRxInfoDeployment_t* >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t* >(nullptr)))
+        
+        ,
+        injectCoarseUtcTimeStubDispatcher(
+            &Cv2xRadioManagerStub::injectCoarseUtcTime,
+            false,
+            _stub->hasElement(10),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint64_t>* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::StatusDeployment_t* >(nullptr)))
+        
     {
         Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7530) }, &getServiceStatusStubDispatcher );
         Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7531) }, &startCv2xStubDispatcher );
         Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7532) }, &stopCv2xStubDispatcher );
         Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7533) }, &requestCv2xStatusStubDispatcher );
         Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7534) }, &requestCv2xStatusExStubDispatcher );
+        Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7535) }, &setPeakTxPowerStubDispatcher );
+        Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7536) }, &setL2FiltersStubDispatcher );
+        Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7537) }, &removeL2FiltersStubDispatcher );
+        Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7538) }, &getSlssRxInfoStubDispatcher );
+        Cv2xRadioManagerSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7539) }, &injectCoarseUtcTimeStubDispatcher );
         // Provided events/fields
         {
             std::set<CommonAPI::SomeIP::eventgroup_id_t> itsEventGroups;
