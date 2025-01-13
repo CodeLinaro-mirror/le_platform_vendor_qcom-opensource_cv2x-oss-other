@@ -160,7 +160,7 @@ public:
     /// This is the method that will be called on remote calls on the method createTxSpsFlow.
     virtual void createTxSpsFlow(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SpsFlowInfo _spsInfo, uint16_t _spsSrcPort, bool _eventSrcPortValid, uint16_t _eventSrcPort, createTxSpsFlowReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method createTxEventFlow.
-    virtual void createTxEventFlow(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, createTxEventFlowReply_t _reply) = 0;
+    virtual void createTxEventFlow(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, createTxEventFlowReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method closeRxSubscription.
     virtual void closeRxSubscription(const std::shared_ptr<CommonAPI::ClientId> _client, uint32_t _subscriptionId, closeRxSubscriptionReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method closeTxFlow.

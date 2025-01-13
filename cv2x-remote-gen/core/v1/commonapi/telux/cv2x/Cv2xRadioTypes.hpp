@@ -610,21 +610,21 @@ public:
         }
     
     };
-    struct EventFlowInfo : CommonAPI::Struct< bool, bool, bool, bool, bool, bool, bool, uint8_t, bool> {
+    struct EventFlowInfo : CommonAPI::Struct< bool, bool, bool, int32_t, bool, uint8_t, bool, uint8_t, bool> {
     
         EventFlowInfo()
         {
             std::get< 0>(values_) = false;
             std::get< 1>(values_) = false;
             std::get< 2>(values_) = false;
-            std::get< 3>(values_) = false;
+            std::get< 3>(values_) = 0;
             std::get< 4>(values_) = false;
-            std::get< 5>(values_) = false;
+            std::get< 5>(values_) = 0u;
             std::get< 6>(values_) = false;
             std::get< 7>(values_) = 0u;
             std::get< 8>(values_) = false;
         }
-        EventFlowInfo(const bool &_autoRetransEnabledValid, const bool &_autoRetransEnabled, const bool &_peakTxPowerValid, const bool &_peakTxPower, const bool &_mcsIndexValid, const bool &_mcsIndex, const bool &_txPoolIdValid, const uint8_t &_txPoolId, const bool &_isUnicast)
+        EventFlowInfo(const bool &_autoRetransEnabledValid, const bool &_autoRetransEnabled, const bool &_peakTxPowerValid, const int32_t &_peakTxPower, const bool &_mcsIndexValid, const uint8_t &_mcsIndex, const bool &_txPoolIdValid, const uint8_t &_txPoolId, const bool &_isUnicast)
         {
             std::get< 0>(values_) = _autoRetransEnabledValid;
             std::get< 1>(values_) = _autoRetransEnabled;
@@ -642,12 +642,12 @@ public:
         inline void setAutoRetransEnabled(const bool _value) { std::get< 1>(values_) = _value; }
         inline const bool &getPeakTxPowerValid() const { return std::get< 2>(values_); }
         inline void setPeakTxPowerValid(const bool _value) { std::get< 2>(values_) = _value; }
-        inline const bool &getPeakTxPower() const { return std::get< 3>(values_); }
-        inline void setPeakTxPower(const bool _value) { std::get< 3>(values_) = _value; }
+        inline const int32_t &getPeakTxPower() const { return std::get< 3>(values_); }
+        inline void setPeakTxPower(const int32_t &_value) { std::get< 3>(values_) = _value; }
         inline const bool &getMcsIndexValid() const { return std::get< 4>(values_); }
         inline void setMcsIndexValid(const bool _value) { std::get< 4>(values_) = _value; }
-        inline const bool &getMcsIndex() const { return std::get< 5>(values_); }
-        inline void setMcsIndex(const bool _value) { std::get< 5>(values_) = _value; }
+        inline const uint8_t &getMcsIndex() const { return std::get< 5>(values_); }
+        inline void setMcsIndex(const uint8_t &_value) { std::get< 5>(values_) = _value; }
         inline const bool &getTxPoolIdValid() const { return std::get< 6>(values_); }
         inline void setTxPoolIdValid(const bool _value) { std::get< 6>(values_) = _value; }
         inline const uint8_t &getTxPoolId() const { return std::get< 7>(values_); }

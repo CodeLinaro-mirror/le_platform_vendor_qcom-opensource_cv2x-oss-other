@@ -101,6 +101,12 @@ public:
         ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus status = {};
         _reply(error, status);
     }
+    COMMONAPI_EXPORT virtual void requestCv2xStatusEx(const std::shared_ptr<CommonAPI::ClientId> _client, requestCv2xStatusExReply_t _reply) {
+        (void)_client;
+        ::v1::commonapi::telux::common::CommonDefines::ErrorCode error;
+        ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx statusEx = {};
+        _reply(error, statusEx);
+    }
 
 
 protected:

@@ -112,10 +112,11 @@ public:
         }
         _reply(error, txSpsFlowId, txEventFlowId, spsError, eventError);
     }
-    COMMONAPI_EXPORT virtual void createTxEventFlow(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, createTxEventFlowReply_t _reply) {
+    COMMONAPI_EXPORT virtual void createTxEventFlow(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, createTxEventFlowReply_t _reply) {
         (void)_client;
         (void)_ipTyp;
         (void)_serviceId;
+        (void)_flowInfo;
         (void)_eventSrcPort;
         ::v1::commonapi::telux::common::CommonDefines::ErrorCode error;
         uint32_t txEventFlowId = 0ul;

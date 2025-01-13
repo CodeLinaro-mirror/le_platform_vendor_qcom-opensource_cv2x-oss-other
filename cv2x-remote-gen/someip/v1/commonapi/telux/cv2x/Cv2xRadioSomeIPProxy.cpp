@@ -61,7 +61,6 @@ Cv2xRadioSomeIPProxy::Cv2xRadioSomeIPProxy(
 }
 
 Cv2xRadioSomeIPProxy::~Cv2xRadioSomeIPProxy() {
-    COMMONAPI_DEBUG("Cv2xRadioSomeIPProxy::~Cv2xRadioSomeIPProxy");
     completed_.set_value();
 }
 
@@ -464,10 +463,11 @@ std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createTxSpsFlowAsync(co
         std::make_tuple(deploy_error, deploy_txSpsFlowId, deploy_txEventFlowId, deploy_spsError, deploy_eventError));
 }
 
-void Cv2xRadioSomeIPProxy::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info) {
+void Cv2xRadioSomeIPProxy::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipTyp, uint32_t _serviceId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _flowInfo, uint16_t _eventSrcPort, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, uint32_t &_txEventFlowId, const CommonAPI::CallInfo *_info) {
     CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
     CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t> deploy_ipTyp(_ipTyp, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr));
     CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_serviceId(_serviceId, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t> deploy_flowInfo(_flowInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr));
     CommonAPI::Deployable< uint16_t, CommonAPI::SomeIP::IntegerDeployment<uint16_t>> deploy_eventSrcPort(_eventSrcPort, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint16_t>* >(nullptr));
     CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_txEventFlowId(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
     CommonAPI::SomeIP::ProxyHelper<
@@ -479,6 +479,10 @@ void Cv2xRadioSomeIPProxy::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xR
             CommonAPI::Deployable<
                 uint32_t,
                 CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t
             >,
             CommonAPI::Deployable<
                 uint16_t,
@@ -501,7 +505,7 @@ void Cv2xRadioSomeIPProxy::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xR
         false,
         false,
         (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
-        deploy_ipTyp, deploy_serviceId, deploy_eventSrcPort,
+        deploy_ipTyp, deploy_serviceId, deploy_flowInfo, deploy_eventSrcPort,
         _internalCallStatus,
         deploy_error,
         deploy_txEventFlowId);
@@ -509,10 +513,11 @@ void Cv2xRadioSomeIPProxy::createTxEventFlow(::v1::commonapi::telux::cv2x::Cv2xR
     _txEventFlowId = deploy_txEventFlowId.getValue();
 }
 
-std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createTxEventFlowAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipTyp, const uint32_t &_serviceId, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_flowInfo, const uint16_t &_eventSrcPort, CreateTxEventFlowAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
     CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t> deploy_error(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr));
     CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t> deploy_ipTyp(_ipTyp, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr));
     CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_serviceId(_serviceId, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t> deploy_flowInfo(_flowInfo, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr));
     CommonAPI::Deployable< uint16_t, CommonAPI::SomeIP::IntegerDeployment<uint16_t>> deploy_eventSrcPort(_eventSrcPort, static_cast< CommonAPI::SomeIP::IntegerDeployment<uint16_t>* >(nullptr));
     CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>> deploy_txEventFlowId(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr));
     return CommonAPI::SomeIP::ProxyHelper<
@@ -524,6 +529,10 @@ std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createTxEventFlowAsync(
             CommonAPI::Deployable<
                 uint32_t,
                 CommonAPI::SomeIP::IntegerDeployment<uint32_t>
+            >,
+            CommonAPI::Deployable<
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo,
+                ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t
             >,
             CommonAPI::Deployable<
                 uint16_t,
@@ -546,7 +555,7 @@ std::future<CommonAPI::CallStatus> Cv2xRadioSomeIPProxy::createTxEventFlowAsync(
         false,
         false,
         (_info ? _info : &CommonAPI::SomeIP::defaultCallInfo),
-        deploy_ipTyp, deploy_serviceId, deploy_eventSrcPort,
+        deploy_ipTyp, deploy_serviceId, deploy_flowInfo, deploy_eventSrcPort,
         [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t > _deploy_error, CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t> > _txEventFlowId) {
             if (_callback)
                 _callback(_internalCallStatus, _deploy_error.getValue(), _txEventFlowId.getValue());

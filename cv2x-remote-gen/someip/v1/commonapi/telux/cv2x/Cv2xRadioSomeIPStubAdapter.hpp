@@ -115,9 +115,9 @@ public:
     
     CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
         ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
-        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, uint32_t, uint16_t>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType, uint32_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, uint16_t>,
         std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, uint32_t>,
-        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>, CommonAPI::SomeIP::IntegerDeployment<uint16_t>>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t, CommonAPI::SomeIP::IntegerDeployment<uint16_t>>,
         std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t>>
     > createTxEventFlowStubDispatcher;
     
@@ -212,7 +212,7 @@ public:
             &Cv2xRadioStub::createTxEventFlow,
             false,
             _stub->hasElement(4),
-            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr), static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr), static_cast< CommonAPI::SomeIP::IntegerDeployment<uint16_t>* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr), static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr), static_cast< CommonAPI::SomeIP::IntegerDeployment<uint16_t>* >(nullptr)),
             std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr)))
         
         ,
