@@ -1,0 +1,192 @@
+/*
+ *Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ *SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+
+package commonapi.SPLITS
+import commonapi.SPLITS.* from "SplitsCommon.fidl"
+
+interface SplitsStatistics{
+    version {major 1 minor 0}
+
+    typedef Port is UInt16
+    typedef PSID is UInt32
+    typedef TimeStamp is UInt64
+    typedef MessageID is UInt32
+
+    attribute AbnormalIncident incident readonly
+
+    struct AbnormalIncident {
+        TimeStamp timestamp
+        SplitsCommon.ErrorCode err
+        String detail
+    }
+
+    struct SPLITSStatus {
+        TimeStamp uptime
+        TimeStamp OSuptime
+        String calendarUptime
+        String calendarOSUptime
+        String Error
+        Boolean SLSSTimeSynced
+        Boolean SCMSConnected
+    }
+
+    // rx statistics per subscription
+    struct RxStatistics {
+        UInt32 rxNumber
+        UInt32 rxFailed
+        UInt32 consistCheckFailed
+        UInt32 consistCheckSuccess
+        UInt32 relevanceCheckFailed
+        UInt32 relevanceCheckSuccess
+        UInt32 misbehaviorsDetected
+        UInt32 decodeFailed
+        UInt32 verifFailed
+        PSID[] psids
+    }
+
+    // Security related
+    struct HvBSMSpecific {
+        UInt64 pseudonymCertChangePassed
+        UInt32 pseudonymCertChangeDistance
+        UInt32 tempID
+    }
+
+    struct SecurityStatistics {
+        HvBSMSpecific bsm
+    }
+
+    // statistics per message PSID
+    struct PSIDStatistics {
+        TimeStamp CRLDeadline
+        TimeStamp CertsExpiryDate
+        UInt32 NumOfPseudonymCerts
+    }
+
+    // tx statistics per flow
+    struct TxStatistics {
+        UInt32 txNumber
+        UInt32 txFailed
+        UInt32 encodeFailed
+        UInt32 signFailed
+        SplitsCommon.FlowType type
+    }
+
+    // statistics per message ID
+    struct MessageStatistics {
+        UInt32 txNumber
+        UInt32 rxSignedCount
+        UInt32 rxUnsignedCount
+        UInt32 decodeFailed
+        UInt32 verifFailed
+        UInt32 misbehaviorsDetected
+        UInt32 relevanceCheckFailed
+        UInt32 consistCheckFailed
+    }
+
+    map AllMessageStatistics {
+        MessageID to MessageStatistics
+    }
+
+    // We are not expecting same port number used for different tx flow and rx subscription
+    map AllRxStatistics {
+        Port to RxStatistics
+    }
+
+    map AllTxStatistics {
+        PSID to TxStatistics
+    }
+
+    map AllPSIDStatistics {
+        PSID to PSIDStatistics
+    }
+
+    // statistics of congestion control related
+    struct CongestionControlStatistics {
+        UInt32 NumRVsInRange
+        Float VehicleDensity
+        Float CQI
+        UInt32 TxMaxITTInterval
+    }
+
+    method getSecurityReport {
+        out {
+            SecurityStatistics report
+        }
+    }
+
+    method getSPLITSStatus {
+        out {
+            SPLITSStatus status
+        }
+    }
+
+    method getCongestionControlStatistics {
+        out {
+            CongestionControlStatistics status
+        }
+    }
+
+    method getRxStatistics:port {
+        in {
+            Port portNumber
+        }
+        out {
+            RxStatistics statistics
+        }
+    }
+
+    method getRxStatistics:all {
+        out {
+            AllRxStatistics statistics
+        }
+    }
+
+    method getTxStatistics:psid {
+        in {
+            PSID sid
+        }
+        out {
+            TxStatistics statistics
+        }
+    }
+
+    method getTxStatistics:all {
+        out {
+            AllTxStatistics statistics
+        }
+    }
+
+    method getMsgStatistics:all {
+        out {
+            AllMessageStatistics statistics
+        }
+    }
+
+    method getMsgStatistics:message_id {
+        in {
+            MessageID msgid
+        }
+        out {
+            MessageStatistics statistics
+        }
+    }
+
+    method getPSIDStatistics:all {
+        out {
+            AllPSIDStatistics statistics
+        }
+    }
+
+    method getPSIDStatistics:psid {
+        in {
+            PSID psid
+        }
+        out {
+            PSIDStatistics statistics
+        }
+    }
+
+}
+

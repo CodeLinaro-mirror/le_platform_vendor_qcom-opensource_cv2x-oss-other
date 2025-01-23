@@ -1,0 +1,26 @@
+/*
+ *Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+ *SPDX-License-Identifier: BSD-3-Clause-Clear
+ */
+
+package commonapi.SPLITS
+
+typeCollection SplitsCommon {
+    version { major 1 minor 0 }
+
+    enumeration FlowType {
+        SPS
+        EVENT
+    }
+
+    enumeration ErrorCode {
+        V2X_SUSPEND
+        V2X_INACTIVE
+        ENCODE_FAIL
+        DECODE_FAIL
+        SIGN_FAIL
+        VERIF_FAIL
+        NOMEMORY
+        OTHER
+    }
+}

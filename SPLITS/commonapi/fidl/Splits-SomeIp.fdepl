@@ -1,10 +1,11 @@
 /*
- *Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ *Copyright (c) 2024 - 2025 Qualcomm Innovation Center, Inc. All rights reserved.
  *SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-4-SOMEIP_deployment_spec.fdepl"
 import "SplitsConfig.fidl"
 import "VehicleData.fidl"
+import "SplitsStatistics.fidl"
 
 define org.genivi.commonapi.someip.deployment for interface commonapi.SPLITS.SplitsConfig {
     SomeIpServiceID = 4680
@@ -38,6 +39,74 @@ define org.genivi.commonapi.someip.deployment for interface commonapi.SPLITS.Veh
     }
 }
 
+define org.genivi.commonapi.someip.deployment for interface commonapi.SPLITS.SplitsStatistics {
+    SomeIpServiceID = 4682
+
+    attribute incident {
+        SomeIpGetterID = 30801
+        SomeIpNotifierID = 32801
+        SomeIpNotifierEventGroups = { 32320 }
+        SomeIpAttributeReliable = true
+    }
+
+    method getSPLITSStatus {
+        SomeIpMethodID = 30300
+        SomeIpReliable = false
+    }
+
+    method getTxStatistics:psid {
+        SomeIpMethodID = 30301
+        SomeIpReliable = false
+    }
+
+    method getTxStatistics:all {
+        SomeIpMethodID = 30302
+        SomeIpReliable = false
+    }
+
+    method getRxStatistics:port {
+        SomeIpMethodID = 30303
+        SomeIpReliable = false
+    }
+
+    method getRxStatistics:all {
+        SomeIpMethodID = 30304
+        SomeIpReliable = false
+    }
+
+    method getMsgStatistics:message_id {
+        SomeIpMethodID = 30305
+        SomeIpReliable = false
+    }
+
+    method getMsgStatistics:all {
+        SomeIpMethodID = 30306
+        SomeIpReliable = false
+    }
+
+    method getPSIDStatistics:psid {
+        SomeIpMethodID = 30307
+        SomeIpReliable = false
+    }
+
+    method getPSIDStatistics:all {
+        SomeIpMethodID = 30308
+        SomeIpReliable = false
+    }
+
+    method getSecurityReport {
+        SomeIpMethodID = 30309
+        SomeIpReliable = false
+    }
+
+    method getCongestionControlStatistics {
+        SomeIpMethodID = 30310
+        SomeIpReliable = false
+    }
+}
+
+
+
 define org.genivi.commonapi.someip.deployment for provider as Service {
     instance commonapi.SPLITS.SplitsConfig {
         InstanceId = "commonapi.SPLITS.SplitsConfig"
@@ -49,6 +118,13 @@ define org.genivi.commonapi.someip.deployment for provider as Service {
     instance commonapi.SPLITS.VehicleData {
         InstanceId = "commonapi.SPLITS.VehicleData"
         SomeIpInstanceID = 22137
+        SomeIpUnicastAddress = "192.168.0.2"
+        SomeIpReliableUnicastPort = 30499
+        SomeIpUnreliableUnicastPort = 30499
+    }
+    instance commonapi.SPLITS.SplitsStatistics {
+        InstanceId = "commonapi.SPLITS.SplitsStatistics"
+        SomeIpInstanceID = 22138
         SomeIpUnicastAddress = "192.168.0.2"
         SomeIpReliableUnicastPort = 30499
         SomeIpUnreliableUnicastPort = 30499
