@@ -169,6 +169,86 @@ public:
         std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t>
     > requestCapabilityStubDispatcher;
     
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings>,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t>
+    > requestDataSessionSettingsStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > updateSrcL2InfoStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > updateTrustedUEListStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, std::string>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, CommonAPI::SomeIP::StringDeployment>
+    > getIfaceNameFromIpTypeStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > createCv2xTcpSocketStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< uint32_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< CommonAPI::SomeIP::IntegerDeployment<uint32_t>>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > closeCv2xTcpSocketStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > setGlobalIPInfoStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > setGlobalIPUnicastRoutingInfoStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities>,
+        std::tuple< >,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t>
+    > getCapabilitiesStubDispatcher;
+    
+    CommonAPI::SomeIP::MethodWithReplyStubDispatcher<
+        ::v1::commonapi::telux::cv2x::Cv2xRadioStub,
+        std::tuple< uint32_t>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines::ErrorCode>,
+        std::tuple< CommonAPI::SomeIP::IntegerDeployment<uint32_t>>,
+        std::tuple< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t>
+    > injectVehicleSpeedStubDispatcher;
+    
     Cv2xRadioSomeIPStubAdapterInternal(
         const CommonAPI::SomeIP::Address &_address,
         const std::shared_ptr<CommonAPI::SomeIP::ProxyConnection> &_connection,
@@ -263,6 +343,86 @@ public:
             std::make_tuple(),
             std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t* >(nullptr)))
         
+        ,
+        requestDataSessionSettingsStubDispatcher(
+            &Cv2xRadioStub::requestDataSessionSettings,
+            false,
+            _stub->hasElement(11),
+            std::make_tuple(),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::DataSessionSettingsDeployment_t* >(nullptr)))
+        
+        ,
+        updateSrcL2InfoStubDispatcher(
+            &Cv2xRadioStub::updateSrcL2Info,
+            false,
+            _stub->hasElement(12),
+            std::make_tuple(),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        updateTrustedUEListStubDispatcher(
+            &Cv2xRadioStub::updateTrustedUEList,
+            false,
+            _stub->hasElement(13),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrustedUEInfoListDeployment_t* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        getIfaceNameFromIpTypeStubDispatcher(
+            &Cv2xRadioStub::getIfaceNameFromIpType,
+            false,
+            _stub->hasElement(14),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TrafficIpTypeDeployment_t* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< CommonAPI::SomeIP::StringDeployment* >(nullptr)))
+        
+        ,
+        createCv2xTcpSocketStubDispatcher(
+            &Cv2xRadioStub::createCv2xTcpSocket,
+            false,
+            _stub->hasElement(15),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::EventFlowInfoDeployment_t* >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SocketInfoDeployment_t* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        closeCv2xTcpSocketStubDispatcher(
+            &Cv2xRadioStub::closeCv2xTcpSocket,
+            false,
+            _stub->hasElement(16),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        setGlobalIPInfoStubDispatcher(
+            &Cv2xRadioStub::setGlobalIPInfo,
+            false,
+            _stub->hasElement(17),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::IPv6AddrTypeDeployment_t* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        setGlobalIPUnicastRoutingInfoStubDispatcher(
+            &Cv2xRadioStub::setGlobalIPUnicastRoutingInfo,
+            false,
+            _stub->hasElement(18),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::GlobalIPUnicastRoutingInfoDeployment_t* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
+        ,
+        getCapabilitiesStubDispatcher(
+            &Cv2xRadioStub::getCapabilities,
+            false,
+            _stub->hasElement(19),
+            std::make_tuple(),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t* >(nullptr)))
+        
+        ,
+        injectVehicleSpeedStubDispatcher(
+            &Cv2xRadioStub::injectVehicleSpeed,
+            false,
+            _stub->hasElement(20),
+            std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr)),
+            std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr)))
+        
     {
         Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7594) }, &createRxSubscriptionStubDispatcher );
         Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x7595) }, &getServiceStatusStubDispatcher );
@@ -275,6 +435,16 @@ public:
         Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x759c) }, &requestSpsFlowInfoStubDispatcher );
         Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x759d) }, &changeEventFlowInfoStubDispatcher );
         Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x759e) }, &requestCapabilityStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x759f) }, &requestDataSessionSettingsStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a0) }, &updateSrcL2InfoStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a1) }, &updateTrustedUEListStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a2) }, &getIfaceNameFromIpTypeStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a3) }, &createCv2xTcpSocketStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a4) }, &closeCv2xTcpSocketStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a5) }, &setGlobalIPInfoStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a6) }, &setGlobalIPUnicastRoutingInfoStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a7) }, &getCapabilitiesStubDispatcher );
+        Cv2xRadioSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x75a8) }, &injectVehicleSpeedStubDispatcher );
         // Provided events/fields
         {
             std::set<CommonAPI::SomeIP::eventgroup_id_t> itsEventGroups;

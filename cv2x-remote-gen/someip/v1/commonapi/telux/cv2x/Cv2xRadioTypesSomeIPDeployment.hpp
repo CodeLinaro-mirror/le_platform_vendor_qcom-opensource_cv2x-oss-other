@@ -32,11 +32,15 @@ namespace Cv2xRadioTypes_ {
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> TrafficCategoryDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> Cv2xStatusTypeDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> Cv2xCauseTypeDeployment_t;
+typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> TxTypeDeployment_t;
+typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> RFTxStatusDeployment_t;
+typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> SegmentTypeDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> TrafficIpTypeDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> RadioConcurrencyModeDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> Cv2xEventDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> PriorityDeployment_t;
 typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> PeriodicityDeployment_t;
+typedef CommonAPI::SomeIP::EnumerationDeployment<uint8_t> SlssSyncPatternDeployment_t;
 typedef CommonAPI::SomeIP::StructDeployment<
     ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusTypeDeployment_t,
     ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusTypeDeployment_t,
@@ -81,6 +85,79 @@ typedef CommonAPI::SomeIP::StructDeployment<
     CommonAPI::EmptyDeployment,
     CommonAPI::EmptyDeployment
 > Cv2xStatusExDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    CommonAPI::SomeIP::ArrayDeployment<
+        CommonAPI::SomeIP::IntegerDeployment<uint8_t>
+    >
+> IPv6AddrTypeDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::ArrayDeployment<
+        CommonAPI::SomeIP::IntegerDeployment<uint8_t>
+    >
+> IPv6AddressDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::EmptyDeployment,
+    CommonAPI::SomeIP::IntegerDeployment<uint32_t>,
+    CommonAPI::EmptyDeployment,
+    CommonAPI::SomeIP::StructDeployment<
+        CommonAPI::SomeIP::ArrayDeployment<
+            CommonAPI::SomeIP::IntegerDeployment<uint8_t>
+        >
+    >
+> DataSessionSettingsDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::IntegerDeployment<uint32_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint16_t>
+> SocketInfoDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::ArrayDeployment<
+        CommonAPI::SomeIP::IntegerDeployment<uint8_t>
+    >
+> GlobalIPUnicastRoutingInfoDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::ArrayDeployment<
+        CommonAPI::SomeIP::StructDeployment<
+            ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::RFTxStatusDeployment_t,
+            CommonAPI::SomeIP::IntegerDeployment<int32_t>
+        >
+    >,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SegmentTypeDeployment_t,
+    ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::TxTypeDeployment_t,
+    CommonAPI::SomeIP::IntegerDeployment<uint16_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint16_t>
+> TxStatusReportDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::RFTxStatusDeployment_t,
+    CommonAPI::SomeIP::IntegerDeployment<int32_t>
+> RFTxInfoDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::IntegerDeployment<uint32_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint32_t>,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>
+> L2FilterInfoDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::IntegerDeployment<uint16_t>,
+    CommonAPI::EmptyDeployment,
+    ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SlssSyncPatternDeployment_t,
+    CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+    CommonAPI::EmptyDeployment
+> SyncRefUeInfoDeployment_t;
+typedef CommonAPI::SomeIP::StructDeployment<
+    CommonAPI::SomeIP::ArrayDeployment<
+        CommonAPI::SomeIP::StructDeployment<
+            CommonAPI::SomeIP::IntegerDeployment<uint16_t>,
+            CommonAPI::EmptyDeployment,
+            ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::SlssSyncPatternDeployment_t,
+            CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
+            CommonAPI::EmptyDeployment
+        >
+    >
+> SlssRxInfoDeployment_t;
 typedef CommonAPI::SomeIP::StructDeployment<
     CommonAPI::SomeIP::IntegerDeployment<uint8_t>,
     CommonAPI::SomeIP::IntegerDeployment<uint16_t>,

@@ -112,11 +112,16 @@ public:
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::common::CommonDefines::Status _status)> stopCv2xReply_t;
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus _status)> requestCv2xStatusReply_t;
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx _statusEx)> requestCv2xStatusExReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::common::CommonDefines::Status _status)> setPeakTxPowerReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::common::CommonDefines::Status _status)> setL2FiltersReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::common::CommonDefines::Status _status)> removeL2FiltersReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo _slssRxInfo, ::v1::commonapi::telux::common::CommonDefines::Status _status)> getSlssRxInfoReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::common::CommonDefines::Status _status)> injectCoarseUtcTimeReply_t;
 
     virtual ~Cv2xRadioManagerStub() {}
     void lockInterfaceVersionAttribute(bool _lockAccess) { static_cast<void>(_lockAccess); }
     bool hasElement(const uint32_t _id) const {
-        return (_id < 6);
+        return (_id < 11);
     }
     virtual const CommonAPI::Version& getInterfaceVersion(std::shared_ptr<CommonAPI::ClientId> _client) = 0;
 
@@ -136,6 +141,16 @@ public:
     virtual void requestCv2xStatus(const std::shared_ptr<CommonAPI::ClientId> _client, requestCv2xStatusReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method requestCv2xStatusEx.
     virtual void requestCv2xStatusEx(const std::shared_ptr<CommonAPI::ClientId> _client, requestCv2xStatusExReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method setPeakTxPower.
+    virtual void setPeakTxPower(const std::shared_ptr<CommonAPI::ClientId> _client, int8_t _txPower, setPeakTxPowerReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method setL2Filters.
+    virtual void setL2Filters(const std::shared_ptr<CommonAPI::ClientId> _client, std::vector< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::L2FilterInfo > _filterList, setL2FiltersReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method removeL2Filters.
+    virtual void removeL2Filters(const std::shared_ptr<CommonAPI::ClientId> _client, std::vector< uint32_t > _l2IdList, removeL2FiltersReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method getSlssRxInfo.
+    virtual void getSlssRxInfo(const std::shared_ptr<CommonAPI::ClientId> _client, getSlssRxInfoReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method injectCoarseUtcTime.
+    virtual void injectCoarseUtcTime(const std::shared_ptr<CommonAPI::ClientId> _client, uint64_t _utc, injectCoarseUtcTimeReply_t _reply) = 0;
 
 
     using CommonAPI::Stub<Cv2xRadioManagerStubAdapter, Cv2xRadioManagerStubRemoteEvent>::initStubAdapter;

@@ -316,6 +316,494 @@ public:
         }
     
     };
+    struct IPv6AddrType : CommonAPI::Struct< uint8_t, std::vector< uint8_t >> {
+    
+        IPv6AddrType()
+        {
+            std::get< 0>(values_) = 0u;
+            std::get< 1>(values_) = std::vector< uint8_t >();
+        }
+        IPv6AddrType(const uint8_t &_prefixLen, const std::vector< uint8_t > &_ipv6Addr)
+        {
+            std::get< 0>(values_) = _prefixLen;
+            std::get< 1>(values_) = _ipv6Addr;
+        }
+        inline const uint8_t &getPrefixLen() const { return std::get< 0>(values_); }
+        inline void setPrefixLen(const uint8_t &_value) { std::get< 0>(values_) = _value; }
+        inline const std::vector< uint8_t > &getIpv6Addr() const { return std::get< 1>(values_); }
+        inline void setIpv6Addr(const std::vector< uint8_t > &_value) { std::get< 1>(values_) = _value; }
+        inline bool operator==(const IPv6AddrType& _other) const {
+        return (getPrefixLen() == _other.getPrefixLen() && getIpv6Addr() == _other.getIpv6Addr());
+        }
+        inline bool operator!=(const IPv6AddrType &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct IPv6Address : CommonAPI::Struct< std::vector< uint8_t >> {
+    
+        IPv6Address()
+        {
+            std::get< 0>(values_) = std::vector< uint8_t >();
+        }
+        IPv6Address(const std::vector< uint8_t > &_addr)
+        {
+            std::get< 0>(values_) = _addr;
+        }
+        inline const std::vector< uint8_t > &getAddr() const { return std::get< 0>(values_); }
+        inline void setAddr(const std::vector< uint8_t > &_value) { std::get< 0>(values_) = _value; }
+        inline bool operator==(const IPv6Address& _other) const {
+        return (getAddr() == _other.getAddr());
+        }
+        inline bool operator!=(const IPv6Address &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct DataSessionSettings : CommonAPI::Struct< bool, uint32_t, bool, IPv6Address> {
+    
+        DataSessionSettings()
+        {
+            std::get< 0>(values_) = false;
+            std::get< 1>(values_) = 0ul;
+            std::get< 2>(values_) = false;
+            std::get< 3>(values_) = IPv6Address();
+        }
+        DataSessionSettings(const bool &_mtuValid, const uint32_t &_mtu, const bool &_ipv6AddrValid, const IPv6Address &_ipv6Addr)
+        {
+            std::get< 0>(values_) = _mtuValid;
+            std::get< 1>(values_) = _mtu;
+            std::get< 2>(values_) = _ipv6AddrValid;
+            std::get< 3>(values_) = _ipv6Addr;
+        }
+        inline const bool &getMtuValid() const { return std::get< 0>(values_); }
+        inline void setMtuValid(const bool _value) { std::get< 0>(values_) = _value; }
+        inline const uint32_t &getMtu() const { return std::get< 1>(values_); }
+        inline void setMtu(const uint32_t &_value) { std::get< 1>(values_) = _value; }
+        inline const bool &getIpv6AddrValid() const { return std::get< 2>(values_); }
+        inline void setIpv6AddrValid(const bool _value) { std::get< 2>(values_) = _value; }
+        inline const IPv6Address &getIpv6Addr() const { return std::get< 3>(values_); }
+        inline void setIpv6Addr(const IPv6Address &_value) { std::get< 3>(values_) = _value; }
+        inline bool operator==(const DataSessionSettings& _other) const {
+        return (getMtuValid() == _other.getMtuValid() && getMtu() == _other.getMtu() && getIpv6AddrValid() == _other.getIpv6AddrValid() && getIpv6Addr() == _other.getIpv6Addr());
+        }
+        inline bool operator!=(const DataSessionSettings &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct SocketInfo : CommonAPI::Struct< uint32_t, uint16_t> {
+    
+        SocketInfo()
+        {
+            std::get< 0>(values_) = 0ul;
+            std::get< 1>(values_) = 0u;
+        }
+        SocketInfo(const uint32_t &_serviceId, const uint16_t &_localPort)
+        {
+            std::get< 0>(values_) = _serviceId;
+            std::get< 1>(values_) = _localPort;
+        }
+        inline const uint32_t &getServiceId() const { return std::get< 0>(values_); }
+        inline void setServiceId(const uint32_t &_value) { std::get< 0>(values_) = _value; }
+        inline const uint16_t &getLocalPort() const { return std::get< 1>(values_); }
+        inline void setLocalPort(const uint16_t &_value) { std::get< 1>(values_) = _value; }
+        inline bool operator==(const SocketInfo& _other) const {
+        return (getServiceId() == _other.getServiceId() && getLocalPort() == _other.getLocalPort());
+        }
+        inline bool operator!=(const SocketInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct GlobalIPUnicastRoutingInfo : CommonAPI::Struct< std::vector< uint8_t >> {
+    
+        GlobalIPUnicastRoutingInfo()
+        {
+            std::get< 0>(values_) = std::vector< uint8_t >();
+        }
+        GlobalIPUnicastRoutingInfo(const std::vector< uint8_t > &_destMacAddr)
+        {
+            std::get< 0>(values_) = _destMacAddr;
+        }
+        inline const std::vector< uint8_t > &getDestMacAddr() const { return std::get< 0>(values_); }
+        inline void setDestMacAddr(const std::vector< uint8_t > &_value) { std::get< 0>(values_) = _value; }
+        inline bool operator==(const GlobalIPUnicastRoutingInfo& _other) const {
+        return (getDestMacAddr() == _other.getDestMacAddr());
+        }
+        inline bool operator!=(const GlobalIPUnicastRoutingInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    
+    struct RFTxStatus : CommonAPI::Enumeration< uint8_t> {
+        enum Literal : uint8_t {
+            INACTIVE = 0,
+            OPERATIONAL = 1,
+            FAULT = 2
+        };
+    
+        RFTxStatus()
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(Literal::INACTIVE)) {}
+        RFTxStatus(Literal _literal)
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(_literal)) {}
+    
+        inline bool validate() const {
+            switch (value_) {
+                case static_cast< uint8_t>(Literal::INACTIVE):
+                case static_cast< uint8_t>(Literal::OPERATIONAL):
+                case static_cast< uint8_t>(Literal::FAULT):
+                return true;
+            default:
+                return false;
+            }
+        }
+    
+        inline bool operator==(const RFTxStatus &_other) const { return (value_ == _other.value_); }
+        inline bool operator!=(const RFTxStatus &_other) const { return (value_ != _other.value_); }
+        inline bool operator<=(const RFTxStatus &_other) const { return (value_ <= _other.value_); }
+        inline bool operator>=(const RFTxStatus &_other) const { return (value_ >= _other.value_); }
+        inline bool operator<(const RFTxStatus &_other) const { return (value_ < _other.value_); }
+        inline bool operator>(const RFTxStatus &_other) const { return (value_ > _other.value_); }
+    
+        inline bool operator==(const Literal &_value) const { return (value_ == static_cast< uint8_t>(_value)); }
+        inline bool operator!=(const Literal &_value) const { return (value_ != static_cast< uint8_t>(_value)); }
+        inline bool operator<=(const Literal &_value) const { return (value_ <= static_cast< uint8_t>(_value)); }
+        inline bool operator>=(const Literal &_value) const { return (value_ >= static_cast< uint8_t>(_value)); }
+        inline bool operator<(const Literal &_value) const { return (value_ < static_cast< uint8_t>(_value)); }
+        inline bool operator>(const Literal &_value) const { return (value_ > static_cast< uint8_t>(_value)); }
+    
+        const char* toString() const noexcept
+        {
+            switch(value_)
+            {
+            case static_cast< uint8_t>(Literal::INACTIVE): return "INACTIVE";
+            case static_cast< uint8_t>(Literal::OPERATIONAL): return "OPERATIONAL";
+            case static_cast< uint8_t>(Literal::FAULT): return "FAULT";
+            default: return "UNDEFINED";
+            }
+        }
+    };
+    struct RFTxInfo : CommonAPI::Struct< RFTxStatus, int32_t> {
+    
+        RFTxInfo()
+        {
+            std::get< 0>(values_) = RFTxStatus();
+            std::get< 1>(values_) = 0;
+        }
+        RFTxInfo(const RFTxStatus &_status, const int32_t &_power)
+        {
+            std::get< 0>(values_) = _status;
+            std::get< 1>(values_) = _power;
+        }
+        inline const RFTxStatus &getStatus() const { return std::get< 0>(values_); }
+        inline void setStatus(const RFTxStatus &_value) { std::get< 0>(values_) = _value; }
+        inline const int32_t &getPower() const { return std::get< 1>(values_); }
+        inline void setPower(const int32_t &_value) { std::get< 1>(values_) = _value; }
+        inline bool operator==(const RFTxInfo& _other) const {
+        return (getStatus() == _other.getStatus() && getPower() == _other.getPower());
+        }
+        inline bool operator!=(const RFTxInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    
+    struct TxType : CommonAPI::Enumeration< uint8_t> {
+        enum Literal : uint8_t {
+            NEW_TX = 0,
+            RE_TX = 1,
+            SLSS_TX = 2
+        };
+    
+        TxType()
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(Literal::NEW_TX)) {}
+        TxType(Literal _literal)
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(_literal)) {}
+    
+        inline bool validate() const {
+            switch (value_) {
+                case static_cast< uint8_t>(Literal::NEW_TX):
+                case static_cast< uint8_t>(Literal::RE_TX):
+                case static_cast< uint8_t>(Literal::SLSS_TX):
+                return true;
+            default:
+                return false;
+            }
+        }
+    
+        inline bool operator==(const TxType &_other) const { return (value_ == _other.value_); }
+        inline bool operator!=(const TxType &_other) const { return (value_ != _other.value_); }
+        inline bool operator<=(const TxType &_other) const { return (value_ <= _other.value_); }
+        inline bool operator>=(const TxType &_other) const { return (value_ >= _other.value_); }
+        inline bool operator<(const TxType &_other) const { return (value_ < _other.value_); }
+        inline bool operator>(const TxType &_other) const { return (value_ > _other.value_); }
+    
+        inline bool operator==(const Literal &_value) const { return (value_ == static_cast< uint8_t>(_value)); }
+        inline bool operator!=(const Literal &_value) const { return (value_ != static_cast< uint8_t>(_value)); }
+        inline bool operator<=(const Literal &_value) const { return (value_ <= static_cast< uint8_t>(_value)); }
+        inline bool operator>=(const Literal &_value) const { return (value_ >= static_cast< uint8_t>(_value)); }
+        inline bool operator<(const Literal &_value) const { return (value_ < static_cast< uint8_t>(_value)); }
+        inline bool operator>(const Literal &_value) const { return (value_ > static_cast< uint8_t>(_value)); }
+    
+        const char* toString() const noexcept
+        {
+            switch(value_)
+            {
+            case static_cast< uint8_t>(Literal::NEW_TX): return "NEW_TX";
+            case static_cast< uint8_t>(Literal::RE_TX): return "RE_TX";
+            case static_cast< uint8_t>(Literal::SLSS_TX): return "SLSS_TX";
+            default: return "UNDEFINED";
+            }
+        }
+    };
+    
+    struct SegmentType : CommonAPI::Enumeration< uint8_t> {
+        enum Literal : uint8_t {
+            FIRST = 0,
+            LAST = 1,
+            MIDDLE = 2,
+            ONLY_ONE = 3
+        };
+    
+        SegmentType()
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(Literal::FIRST)) {}
+        SegmentType(Literal _literal)
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(_literal)) {}
+    
+        inline bool validate() const {
+            switch (value_) {
+                case static_cast< uint8_t>(Literal::FIRST):
+                case static_cast< uint8_t>(Literal::LAST):
+                case static_cast< uint8_t>(Literal::MIDDLE):
+                case static_cast< uint8_t>(Literal::ONLY_ONE):
+                return true;
+            default:
+                return false;
+            }
+        }
+    
+        inline bool operator==(const SegmentType &_other) const { return (value_ == _other.value_); }
+        inline bool operator!=(const SegmentType &_other) const { return (value_ != _other.value_); }
+        inline bool operator<=(const SegmentType &_other) const { return (value_ <= _other.value_); }
+        inline bool operator>=(const SegmentType &_other) const { return (value_ >= _other.value_); }
+        inline bool operator<(const SegmentType &_other) const { return (value_ < _other.value_); }
+        inline bool operator>(const SegmentType &_other) const { return (value_ > _other.value_); }
+    
+        inline bool operator==(const Literal &_value) const { return (value_ == static_cast< uint8_t>(_value)); }
+        inline bool operator!=(const Literal &_value) const { return (value_ != static_cast< uint8_t>(_value)); }
+        inline bool operator<=(const Literal &_value) const { return (value_ <= static_cast< uint8_t>(_value)); }
+        inline bool operator>=(const Literal &_value) const { return (value_ >= static_cast< uint8_t>(_value)); }
+        inline bool operator<(const Literal &_value) const { return (value_ < static_cast< uint8_t>(_value)); }
+        inline bool operator>(const Literal &_value) const { return (value_ > static_cast< uint8_t>(_value)); }
+    
+        const char* toString() const noexcept
+        {
+            switch(value_)
+            {
+            case static_cast< uint8_t>(Literal::FIRST): return "FIRST";
+            case static_cast< uint8_t>(Literal::LAST): return "LAST";
+            case static_cast< uint8_t>(Literal::MIDDLE): return "MIDDLE";
+            case static_cast< uint8_t>(Literal::ONLY_ONE): return "ONLY_ONE";
+            default: return "UNDEFINED";
+            }
+        }
+    };
+    struct TxStatusReport : CommonAPI::Struct< std::vector< RFTxInfo >, uint8_t, uint8_t, uint8_t, uint8_t, SegmentType, TxType, uint16_t, uint16_t> {
+    
+        TxStatusReport()
+        {
+            std::get< 0>(values_) = std::vector< RFTxInfo >();
+            std::get< 1>(values_) = 0u;
+            std::get< 2>(values_) = 0u;
+            std::get< 3>(values_) = 0u;
+            std::get< 4>(values_) = 0u;
+            std::get< 5>(values_) = SegmentType();
+            std::get< 6>(values_) = TxType();
+            std::get< 7>(values_) = 0u;
+            std::get< 8>(values_) = 0u;
+        }
+        TxStatusReport(const std::vector< RFTxInfo > &_rfInfo, const uint8_t &_numRb, const uint8_t &_startRb, const uint8_t &_mcs, const uint8_t &_segNum, const SegmentType &_segType, const TxType &_txType, const uint16_t &_otaTiming, const uint16_t &_port)
+        {
+            std::get< 0>(values_) = _rfInfo;
+            std::get< 1>(values_) = _numRb;
+            std::get< 2>(values_) = _startRb;
+            std::get< 3>(values_) = _mcs;
+            std::get< 4>(values_) = _segNum;
+            std::get< 5>(values_) = _segType;
+            std::get< 6>(values_) = _txType;
+            std::get< 7>(values_) = _otaTiming;
+            std::get< 8>(values_) = _port;
+        }
+        inline const std::vector< RFTxInfo > &getRfInfo() const { return std::get< 0>(values_); }
+        inline void setRfInfo(const std::vector< RFTxInfo > &_value) { std::get< 0>(values_) = _value; }
+        inline const uint8_t &getNumRb() const { return std::get< 1>(values_); }
+        inline void setNumRb(const uint8_t &_value) { std::get< 1>(values_) = _value; }
+        inline const uint8_t &getStartRb() const { return std::get< 2>(values_); }
+        inline void setStartRb(const uint8_t &_value) { std::get< 2>(values_) = _value; }
+        inline const uint8_t &getMcs() const { return std::get< 3>(values_); }
+        inline void setMcs(const uint8_t &_value) { std::get< 3>(values_) = _value; }
+        inline const uint8_t &getSegNum() const { return std::get< 4>(values_); }
+        inline void setSegNum(const uint8_t &_value) { std::get< 4>(values_) = _value; }
+        inline const SegmentType &getSegType() const { return std::get< 5>(values_); }
+        inline void setSegType(const SegmentType &_value) { std::get< 5>(values_) = _value; }
+        inline const TxType &getTxType() const { return std::get< 6>(values_); }
+        inline void setTxType(const TxType &_value) { std::get< 6>(values_) = _value; }
+        inline const uint16_t &getOtaTiming() const { return std::get< 7>(values_); }
+        inline void setOtaTiming(const uint16_t &_value) { std::get< 7>(values_) = _value; }
+        inline const uint16_t &getPort() const { return std::get< 8>(values_); }
+        inline void setPort(const uint16_t &_value) { std::get< 8>(values_) = _value; }
+        inline bool operator==(const TxStatusReport& _other) const {
+        return (getRfInfo() == _other.getRfInfo() && getNumRb() == _other.getNumRb() && getStartRb() == _other.getStartRb() && getMcs() == _other.getMcs() && getSegNum() == _other.getSegNum() && getSegType() == _other.getSegType() && getTxType() == _other.getTxType() && getOtaTiming() == _other.getOtaTiming() && getPort() == _other.getPort());
+        }
+        inline bool operator!=(const TxStatusReport &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct L2FilterInfo : CommonAPI::Struct< uint32_t, uint32_t, uint8_t> {
+    
+        L2FilterInfo()
+        {
+            std::get< 0>(values_) = 0ul;
+            std::get< 1>(values_) = 0ul;
+            std::get< 2>(values_) = 0u;
+        }
+        L2FilterInfo(const uint32_t &_srcL2Id, const uint32_t &_durationMs, const uint8_t &_pppp)
+        {
+            std::get< 0>(values_) = _srcL2Id;
+            std::get< 1>(values_) = _durationMs;
+            std::get< 2>(values_) = _pppp;
+        }
+        inline const uint32_t &getSrcL2Id() const { return std::get< 0>(values_); }
+        inline void setSrcL2Id(const uint32_t &_value) { std::get< 0>(values_) = _value; }
+        inline const uint32_t &getDurationMs() const { return std::get< 1>(values_); }
+        inline void setDurationMs(const uint32_t &_value) { std::get< 1>(values_) = _value; }
+        inline const uint8_t &getPppp() const { return std::get< 2>(values_); }
+        inline void setPppp(const uint8_t &_value) { std::get< 2>(values_) = _value; }
+        inline bool operator==(const L2FilterInfo& _other) const {
+        return (getSrcL2Id() == _other.getSrcL2Id() && getDurationMs() == _other.getDurationMs() && getPppp() == _other.getPppp());
+        }
+        inline bool operator!=(const L2FilterInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    
+    struct SlssSyncPattern : CommonAPI::Enumeration< uint8_t> {
+        enum Literal : uint8_t {
+            OFFSET_IND_1 = 0,
+            OFFSET_IND_2 = 1,
+            OFFSET_IND_3 = 2,
+            ODD_RESERVED = 3,
+            EVEN_RESERVED = 4,
+            UNKNOWN = 5
+        };
+    
+        SlssSyncPattern()
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(Literal::OFFSET_IND_1)) {}
+        SlssSyncPattern(Literal _literal)
+            : CommonAPI::Enumeration< uint8_t>(static_cast< uint8_t>(_literal)) {}
+    
+        inline bool validate() const {
+            switch (value_) {
+                case static_cast< uint8_t>(Literal::OFFSET_IND_1):
+                case static_cast< uint8_t>(Literal::OFFSET_IND_2):
+                case static_cast< uint8_t>(Literal::OFFSET_IND_3):
+                case static_cast< uint8_t>(Literal::ODD_RESERVED):
+                case static_cast< uint8_t>(Literal::EVEN_RESERVED):
+                case static_cast< uint8_t>(Literal::UNKNOWN):
+                return true;
+            default:
+                return false;
+            }
+        }
+    
+        inline bool operator==(const SlssSyncPattern &_other) const { return (value_ == _other.value_); }
+        inline bool operator!=(const SlssSyncPattern &_other) const { return (value_ != _other.value_); }
+        inline bool operator<=(const SlssSyncPattern &_other) const { return (value_ <= _other.value_); }
+        inline bool operator>=(const SlssSyncPattern &_other) const { return (value_ >= _other.value_); }
+        inline bool operator<(const SlssSyncPattern &_other) const { return (value_ < _other.value_); }
+        inline bool operator>(const SlssSyncPattern &_other) const { return (value_ > _other.value_); }
+    
+        inline bool operator==(const Literal &_value) const { return (value_ == static_cast< uint8_t>(_value)); }
+        inline bool operator!=(const Literal &_value) const { return (value_ != static_cast< uint8_t>(_value)); }
+        inline bool operator<=(const Literal &_value) const { return (value_ <= static_cast< uint8_t>(_value)); }
+        inline bool operator>=(const Literal &_value) const { return (value_ >= static_cast< uint8_t>(_value)); }
+        inline bool operator<(const Literal &_value) const { return (value_ < static_cast< uint8_t>(_value)); }
+        inline bool operator>(const Literal &_value) const { return (value_ > static_cast< uint8_t>(_value)); }
+    
+        const char* toString() const noexcept
+        {
+            switch(value_)
+            {
+            case static_cast< uint8_t>(Literal::OFFSET_IND_1): return "OFFSET_IND_1";
+            case static_cast< uint8_t>(Literal::OFFSET_IND_2): return "OFFSET_IND_2";
+            case static_cast< uint8_t>(Literal::OFFSET_IND_3): return "OFFSET_IND_3";
+            case static_cast< uint8_t>(Literal::ODD_RESERVED): return "ODD_RESERVED";
+            case static_cast< uint8_t>(Literal::EVEN_RESERVED): return "EVEN_RESERVED";
+            case static_cast< uint8_t>(Literal::UNKNOWN): return "UNKNOWN";
+            default: return "UNDEFINED";
+            }
+        }
+    };
+    struct SyncRefUeInfo : CommonAPI::Struct< uint16_t, bool, SlssSyncPattern, uint8_t, bool> {
+    
+        SyncRefUeInfo()
+        {
+            std::get< 0>(values_) = 0u;
+            std::get< 1>(values_) = false;
+            std::get< 2>(values_) = SlssSyncPattern();
+            std::get< 3>(values_) = 0u;
+            std::get< 4>(values_) = false;
+        }
+        SyncRefUeInfo(const uint16_t &_slssId, const bool &_inCoverage, const SlssSyncPattern &_pattern, const uint8_t &_rsrp, const bool &_selected)
+        {
+            std::get< 0>(values_) = _slssId;
+            std::get< 1>(values_) = _inCoverage;
+            std::get< 2>(values_) = _pattern;
+            std::get< 3>(values_) = _rsrp;
+            std::get< 4>(values_) = _selected;
+        }
+        inline const uint16_t &getSlssId() const { return std::get< 0>(values_); }
+        inline void setSlssId(const uint16_t &_value) { std::get< 0>(values_) = _value; }
+        inline const bool &getInCoverage() const { return std::get< 1>(values_); }
+        inline void setInCoverage(const bool _value) { std::get< 1>(values_) = _value; }
+        inline const SlssSyncPattern &getPattern() const { return std::get< 2>(values_); }
+        inline void setPattern(const SlssSyncPattern &_value) { std::get< 2>(values_) = _value; }
+        inline const uint8_t &getRsrp() const { return std::get< 3>(values_); }
+        inline void setRsrp(const uint8_t &_value) { std::get< 3>(values_) = _value; }
+        inline const bool &getSelected() const { return std::get< 4>(values_); }
+        inline void setSelected(const bool _value) { std::get< 4>(values_) = _value; }
+        inline bool operator==(const SyncRefUeInfo& _other) const {
+        return (getSlssId() == _other.getSlssId() && getInCoverage() == _other.getInCoverage() && getPattern() == _other.getPattern() && getRsrp() == _other.getRsrp() && getSelected() == _other.getSelected());
+        }
+        inline bool operator!=(const SyncRefUeInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
+    struct SlssRxInfo : CommonAPI::Struct< std::vector< SyncRefUeInfo >> {
+    
+        SlssRxInfo()
+        {
+            std::get< 0>(values_) = std::vector< SyncRefUeInfo >();
+        }
+        SlssRxInfo(const std::vector< SyncRefUeInfo > &_ueInfo)
+        {
+            std::get< 0>(values_) = _ueInfo;
+        }
+        inline const std::vector< SyncRefUeInfo > &getUeInfo() const { return std::get< 0>(values_); }
+        inline void setUeInfo(const std::vector< SyncRefUeInfo > &_value) { std::get< 0>(values_) = _value; }
+        inline bool operator==(const SlssRxInfo& _other) const {
+        return (getUeInfo() == _other.getUeInfo());
+        }
+        inline bool operator!=(const SlssRxInfo &_other) const {
+            return !((*this) == _other);
+        }
+    
+    };
     
     struct TrafficIpType : CommonAPI::Enumeration< uint8_t> {
         enum Literal : uint8_t {

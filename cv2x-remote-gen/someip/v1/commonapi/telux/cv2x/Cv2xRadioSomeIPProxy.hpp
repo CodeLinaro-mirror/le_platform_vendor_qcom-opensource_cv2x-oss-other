@@ -115,6 +115,46 @@ public:
 
     virtual std::future<CommonAPI::CallStatus> requestCapabilityAsync(RequestCapabilityAsyncCallback _callback, const CommonAPI::CallInfo *_info);
 
+    virtual void requestDataSessionSettings(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings &_settings, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> requestDataSessionSettingsAsync(RequestDataSessionSettingsAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void updateSrcL2Info(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> updateSrcL2InfoAsync(UpdateSrcL2InfoAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void updateTrustedUEList(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList _infoList, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> updateTrustedUEListAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList &_infoList, UpdateTrustedUEListAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void getIfaceNameFromIpType(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, std::string &_ifaceNameIp, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> getIfaceNameFromIpTypeAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType &_ipType, GetIfaceNameFromIpTypeAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void createCv2xTcpSocket(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo _socketInfo, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> createCv2xTcpSocketAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo &_eventFlowInfo, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo &_socketInfo, CreateCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void closeCv2xTcpSocket(uint32_t _sockId, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> closeCv2xTcpSocketAsync(const uint32_t &_sockId, CloseCv2xTcpSocketAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void setGlobalIPInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType _ipv6Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> setGlobalIPInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType &_ipv6Addr, SetGlobalIPInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void setGlobalIPUnicastRoutingInfo(::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo _destL2Addr, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> setGlobalIPUnicastRoutingInfoAsync(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo &_destL2Addr, SetGlobalIPUnicastRoutingInfoAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void getCapabilities(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities &_capabilities, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> getCapabilitiesAsync(GetCapabilitiesAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
+    virtual void injectVehicleSpeed(uint32_t _speed, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info);
+
+    virtual std::future<CommonAPI::CallStatus> injectVehicleSpeedAsync(const uint32_t &_speed, InjectVehicleSpeedAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+
     virtual void getOwnVersion(uint16_t &_major, uint16_t &_minor) const;
 
     virtual std::future<void> getCompletionFuture();

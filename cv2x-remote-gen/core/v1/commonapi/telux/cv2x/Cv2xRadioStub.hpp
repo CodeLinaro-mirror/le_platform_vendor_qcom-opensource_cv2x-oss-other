@@ -143,11 +143,21 @@ public:
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SpsFlowInfo _spsInfo)> requestSpsFlowInfoReply_t;
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> changeEventFlowInfoReply_t;
     typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities _capabilities)> requestCapabilityReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::DataSessionSettings _settings)> requestDataSessionSettingsReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> updateSrcL2InfoReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> updateTrustedUEListReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, std::string _ifaceNameIp)> getIfaceNameFromIpTypeReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> createCv2xTcpSocketReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> closeCv2xTcpSocketReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> setGlobalIPInfoReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> setGlobalIPUnicastRoutingInfoReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities _capabilities)> getCapabilitiesReply_t;
+    typedef std::function<void (::v1::commonapi::telux::common::CommonDefines::ErrorCode _error)> injectVehicleSpeedReply_t;
 
     virtual ~Cv2xRadioStub() {}
     void lockInterfaceVersionAttribute(bool _lockAccess) { static_cast<void>(_lockAccess); }
     bool hasElement(const uint32_t _id) const {
-        return (_id < 17);
+        return (_id < 27);
     }
     virtual const CommonAPI::Version& getInterfaceVersion(std::shared_ptr<CommonAPI::ClientId> _client) = 0;
 
@@ -173,6 +183,26 @@ public:
     virtual void changeEventFlowInfo(const std::shared_ptr<CommonAPI::ClientId> _client, uint32_t _txFlowId, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventInfo, changeEventFlowInfoReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method requestCapability.
     virtual void requestCapability(const std::shared_ptr<CommonAPI::ClientId> _client, requestCapabilityReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method requestDataSessionSettings.
+    virtual void requestDataSessionSettings(const std::shared_ptr<CommonAPI::ClientId> _client, requestDataSessionSettingsReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method updateSrcL2Info.
+    virtual void updateSrcL2Info(const std::shared_ptr<CommonAPI::ClientId> _client, updateSrcL2InfoReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method updateTrustedUEList.
+    virtual void updateTrustedUEList(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrustedUEInfoList _infoList, updateTrustedUEListReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method getIfaceNameFromIpType.
+    virtual void getIfaceNameFromIpType(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::TrafficIpType _ipType, getIfaceNameFromIpTypeReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method createCv2xTcpSocket.
+    virtual void createCv2xTcpSocket(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::EventFlowInfo _eventFlowInfo, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SocketInfo _socketInfo, createCv2xTcpSocketReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method closeCv2xTcpSocket.
+    virtual void closeCv2xTcpSocket(const std::shared_ptr<CommonAPI::ClientId> _client, uint32_t _sockId, closeCv2xTcpSocketReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method setGlobalIPInfo.
+    virtual void setGlobalIPInfo(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::IPv6AddrType _ipv6Addr, setGlobalIPInfoReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method setGlobalIPUnicastRoutingInfo.
+    virtual void setGlobalIPUnicastRoutingInfo(const std::shared_ptr<CommonAPI::ClientId> _client, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::GlobalIPUnicastRoutingInfo _destL2Addr, setGlobalIPUnicastRoutingInfoReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method getCapabilities.
+    virtual void getCapabilities(const std::shared_ptr<CommonAPI::ClientId> _client, getCapabilitiesReply_t _reply) = 0;
+    /// This is the method that will be called on remote calls on the method injectVehicleSpeed.
+    virtual void injectVehicleSpeed(const std::shared_ptr<CommonAPI::ClientId> _client, uint32_t _speed, injectVehicleSpeedReply_t _reply) = 0;
     /// Sends a broadcast event for currentCv2xStatus.
     virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) {
         auto stubAdapter = CommonAPI::Stub<Cv2xRadioStubAdapter, Cv2xRadioStubRemoteEvent>::stubAdapter_.lock();
