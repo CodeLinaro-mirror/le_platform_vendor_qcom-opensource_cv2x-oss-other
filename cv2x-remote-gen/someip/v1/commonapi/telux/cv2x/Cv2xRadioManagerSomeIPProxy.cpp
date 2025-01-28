@@ -51,7 +51,7 @@ Cv2xRadioManagerSomeIPProxy::Cv2xRadioManagerSomeIPProxy(
         : CommonAPI::SomeIP::Proxy(_address, _connection),
           ::v1::commonapi::telux::common::CommonDefinesSomeIPProxy(_address, _connection),
           ::v1::commonapi::telux::cv2x::Cv2xRadioTypesSomeIPProxy(_address, _connection),
-          currentCv2xStatus_(*this, 0x80f2, CommonAPI::SomeIP::event_id_t(0x80f2), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t* >(nullptr)))
+          cv2xStatusEx_(*this, 0x80f2, CommonAPI::SomeIP::event_id_t(0x80f2), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr)))
 {
 }
 
@@ -60,8 +60,8 @@ Cv2xRadioManagerSomeIPProxy::~Cv2xRadioManagerSomeIPProxy() {
 }
 
 
-Cv2xRadioManagerSomeIPProxy::CurrentCv2xStatusEvent& Cv2xRadioManagerSomeIPProxy::getCurrentCv2xStatusEvent() {
-    return currentCv2xStatus_;
+Cv2xRadioManagerSomeIPProxy::Cv2xStatusExEvent& Cv2xRadioManagerSomeIPProxy::getCv2xStatusExEvent() {
+    return cv2xStatusEx_;
 }
 
 void Cv2xRadioManagerSomeIPProxy::GetServiceStatus(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::ServiceStatus &_status, const CommonAPI::CallInfo *_info) {

@@ -52,7 +52,7 @@ public:
 
     void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status);
 
-    void fireCurrentCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx);
+    void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx);
 
     void fireCurrentL2AddrEvent(const uint32_t &_newL2Addr);
 
@@ -498,7 +498,7 @@ void Cv2xRadioSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireCurrentCv2xStatus
 }
 
 template <typename _Stub, typename... _Stubs>
-void Cv2xRadioSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireCurrentCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
+void Cv2xRadioSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
     CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t> deployed_statusEx(_statusEx, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr));
     CommonAPI::SomeIP::StubEventHelper<CommonAPI::SomeIP::SerializableArguments<  CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t > 
     >>

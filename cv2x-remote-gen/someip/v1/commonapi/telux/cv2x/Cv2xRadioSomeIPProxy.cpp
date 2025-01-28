@@ -52,7 +52,7 @@ Cv2xRadioSomeIPProxy::Cv2xRadioSomeIPProxy(
           ::v1::commonapi::telux::common::CommonDefinesSomeIPProxy(_address, _connection),
           ::v1::commonapi::telux::cv2x::Cv2xRadioTypesSomeIPProxy(_address, _connection),
           currentCv2xStatus_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8006), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t* >(nullptr))),
-          currentCv2xStatusEx_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8001), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr))),
+          cv2xStatusEx_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8001), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr))),
           currentL2Addr_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8002), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<uint32_t>* >(nullptr))),
           currentSpsOffset_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8003), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< CommonAPI::SomeIP::IntegerDeployment<int32_t>* >(nullptr), static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::MacDetailsDeployment_t* >(nullptr))),
           currentCapabilities_(*this, 0x8001, CommonAPI::SomeIP::event_id_t(0x8004), CommonAPI::SomeIP::event_type_e::ET_EVENT , CommonAPI::SomeIP::reliability_type_e::RT_UNRELIABLE, false, std::make_tuple(static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t* >(nullptr))),
@@ -68,8 +68,8 @@ Cv2xRadioSomeIPProxy::~Cv2xRadioSomeIPProxy() {
 Cv2xRadioSomeIPProxy::CurrentCv2xStatusEvent& Cv2xRadioSomeIPProxy::getCurrentCv2xStatusEvent() {
     return currentCv2xStatus_;
 }
-Cv2xRadioSomeIPProxy::CurrentCv2xStatusExEvent& Cv2xRadioSomeIPProxy::getCurrentCv2xStatusExEvent() {
-    return currentCv2xStatusEx_;
+Cv2xRadioSomeIPProxy::Cv2xStatusExEvent& Cv2xRadioSomeIPProxy::getCv2xStatusExEvent() {
+    return cv2xStatusEx_;
 }
 Cv2xRadioSomeIPProxy::CurrentL2AddrEvent& Cv2xRadioSomeIPProxy::getCurrentL2AddrEvent() {
     return currentL2Addr_;

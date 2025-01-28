@@ -506,10 +506,10 @@ public:
         return delegate_->getCurrentCv2xStatusEvent();
     }
     /**
-     * Returns the wrapper class that provides access to the broadcast currentCv2xStatusEx.
+     * Returns the wrapper class that provides access to the broadcast cv2xStatusEx.
      */
-    virtual CurrentCv2xStatusExEvent& getCurrentCv2xStatusExEvent() {
-        return delegate_->getCurrentCv2xStatusExEvent();
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent() {
+        return delegate_->getCv2xStatusExEvent();
     }
     /**
      * Returns the wrapper class that provides access to the broadcast currentL2Addr.

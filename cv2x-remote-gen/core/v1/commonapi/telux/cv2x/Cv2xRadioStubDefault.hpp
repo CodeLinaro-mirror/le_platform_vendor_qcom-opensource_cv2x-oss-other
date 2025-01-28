@@ -164,8 +164,8 @@ public:
     COMMONAPI_EXPORT virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) {
         Cv2xRadioStub::fireCurrentCv2xStatusEvent(_status);
     }
-    COMMONAPI_EXPORT virtual void fireCurrentCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
-        Cv2xRadioStub::fireCurrentCv2xStatusExEvent(_statusEx);
+    COMMONAPI_EXPORT virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
+        Cv2xRadioStub::fireCv2xStatusExEvent(_statusEx);
     }
     COMMONAPI_EXPORT virtual void fireCurrentL2AddrEvent(const uint32_t &_newL2Addr) {
         Cv2xRadioStub::fireCurrentL2AddrEvent(_newL2Addr);

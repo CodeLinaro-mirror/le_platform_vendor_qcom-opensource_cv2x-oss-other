@@ -61,7 +61,7 @@ public:
 
     virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent();
 
-    virtual CurrentCv2xStatusExEvent& getCurrentCv2xStatusExEvent();
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent();
 
     virtual CurrentL2AddrEvent& getCurrentL2AddrEvent();
 
@@ -161,7 +161,7 @@ public:
 
 private:
     CommonAPI::SomeIP::Event<CurrentCv2xStatusEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t >> currentCv2xStatus_;
-    CommonAPI::SomeIP::Event<CurrentCv2xStatusExEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t >> currentCv2xStatusEx_;
+    CommonAPI::SomeIP::Event<Cv2xStatusExEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t >> cv2xStatusEx_;
     CommonAPI::SomeIP::Event<CurrentL2AddrEvent, CommonAPI::Deployable< uint32_t, CommonAPI::SomeIP::IntegerDeployment<uint32_t> >> currentL2Addr_;
     CommonAPI::SomeIP::Event<CurrentSpsOffsetEvent, CommonAPI::Deployable< int32_t, CommonAPI::SomeIP::IntegerDeployment<int32_t> >, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::MacDetails, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::MacDetailsDeployment_t >> currentSpsOffset_;
     CommonAPI::SomeIP::Event<CurrentCapabilitiesEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xRadioCapabilities, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xRadioCapabilitiesDeployment_t >> currentCapabilities_;
