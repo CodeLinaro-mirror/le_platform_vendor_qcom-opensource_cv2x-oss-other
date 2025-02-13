@@ -50,7 +50,7 @@ public:
         Cv2xRadioManagerSomeIPStubAdapterHelper::deinit();
     }
 
-    void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status);
+    void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx);
 
     void deactivateManagedInstances() {}
     
@@ -161,7 +161,7 @@ public:
         getServiceStatusStubDispatcher(
             &Cv2xRadioManagerStub::GetServiceStatus,
             false,
-            _stub->hasElement(0),
+            _stub->hasElement(1),
             std::make_tuple(),
             std::make_tuple(static_cast< ::v1::commonapi::telux::common::CommonDefines_::ErrorCodeDeployment_t * >(nullptr), static_cast< ::v1::commonapi::telux::common::CommonDefines_::ServiceStatusDeployment_t* >(nullptr)))
         
@@ -263,15 +263,15 @@ public:
 };
 
 template <typename _Stub, typename... _Stubs>
-void Cv2xRadioManagerSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) {
-    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t> deployed_status(_status, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t* >(nullptr));
-    CommonAPI::SomeIP::StubEventHelper<CommonAPI::SomeIP::SerializableArguments<  CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t > 
+void Cv2xRadioManagerSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
+    CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t> deployed_statusEx(_statusEx, static_cast< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t* >(nullptr));
+    CommonAPI::SomeIP::StubEventHelper<CommonAPI::SomeIP::SerializableArguments<  CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t > 
     >>
         ::sendEvent(
             *this,
             CommonAPI::SomeIP::event_id_t(0x80f2),
             false,
-             deployed_status 
+             deployed_statusEx 
     );
 }
 

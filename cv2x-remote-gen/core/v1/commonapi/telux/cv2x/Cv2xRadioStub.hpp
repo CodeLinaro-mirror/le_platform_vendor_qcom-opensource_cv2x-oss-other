@@ -64,10 +64,10 @@ class Cv2xRadioStubAdapter
     */
     virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) = 0;
     /**
-    * Sends a broadcast event for currentCv2xStatusEx. Should not be called directly.
+    * Sends a broadcast event for cv2xStatusEx. Should not be called directly.
     * Instead, the "fire<broadcastName>Event" methods of the stub should be used.
     */
-    virtual void fireCurrentCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) = 0;
+    virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) = 0;
     /**
     * Sends a broadcast event for currentL2Addr. Should not be called directly.
     * Instead, the "fire<broadcastName>Event" methods of the stub should be used.
@@ -209,11 +209,11 @@ public:
         if (stubAdapter)
             stubAdapter->fireCurrentCv2xStatusEvent(_status);
     }
-    /// Sends a broadcast event for currentCv2xStatusEx.
-    virtual void fireCurrentCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
+    /// Sends a broadcast event for cv2xStatusEx.
+    virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
         auto stubAdapter = CommonAPI::Stub<Cv2xRadioStubAdapter, Cv2xRadioStubRemoteEvent>::stubAdapter_.lock();
         if (stubAdapter)
-            stubAdapter->fireCurrentCv2xStatusExEvent(_statusEx);
+            stubAdapter->fireCv2xStatusExEvent(_statusEx);
     }
     /// Sends a broadcast event for currentL2Addr.
     virtual void fireCurrentL2AddrEvent(const uint32_t &_newL2Addr) {

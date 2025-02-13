@@ -59,7 +59,7 @@ public:
 
     virtual ~Cv2xRadioManagerSomeIPProxy();
 
-    virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent();
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent();
 
     virtual void GetServiceStatus(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::ServiceStatus &_status, const CommonAPI::CallInfo *_info);
 
@@ -106,7 +106,7 @@ public:
     virtual std::future<void> getCompletionFuture();
 
 private:
-    CommonAPI::SomeIP::Event<CurrentCv2xStatusEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusDeployment_t >> currentCv2xStatus_;
+    CommonAPI::SomeIP::Event<Cv2xStatusExEvent, CommonAPI::Deployable< ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx, ::v1::commonapi::telux::cv2x::Cv2xRadioTypes_::Cv2xStatusExDeployment_t >> cv2xStatusEx_;
 
     std::promise<void> completed_;
 };

@@ -76,6 +76,12 @@ public:
     virtual std::future<void> getCompletionFuture();
 
     /**
+     * Returns the wrapper class that provides access to the broadcast cv2xStatusEx.
+     */
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent() {
+        return delegate_->getCv2xStatusExEvent();
+    }
+    /**
      * Calls GetServiceStatus with synchronous semantics.
      *
      * All non-const parameters will be filled with the returned values.
@@ -95,12 +101,6 @@ public:
      * It will provide the same value for CallStatus as will be handed to the callback.
      */
     virtual std::future<CommonAPI::CallStatus> GetServiceStatusAsync(GetServiceStatusAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
-    /**
-     * Returns the wrapper class that provides access to the broadcast currentCv2xStatus.
-     */
-    virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent() {
-        return delegate_->getCurrentCv2xStatusEvent();
-    }
     /**
      * Calls startCv2x with synchronous semantics.
      *

@@ -65,6 +65,9 @@ public:
         return &remoteEventHandler_;
     }
 
+    COMMONAPI_EXPORT virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
+        Cv2xRadioManagerStub::fireCv2xStatusExEvent(_statusEx);
+    }
     COMMONAPI_EXPORT virtual void GetServiceStatus(const std::shared_ptr<CommonAPI::ClientId> _client, GetServiceStatusReply_t _reply) {
         (void)_client;
         ::v1::commonapi::telux::common::CommonDefines::ErrorCode error;
@@ -73,9 +76,6 @@ public:
             return;
         }
         _reply(error, status);
-    }
-    COMMONAPI_EXPORT virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) {
-        Cv2xRadioManagerStub::fireCurrentCv2xStatusEvent(_status);
     }
     COMMONAPI_EXPORT virtual void startCv2x(const std::shared_ptr<CommonAPI::ClientId> _client, startCv2xReply_t _reply) {
         (void)_client;

@@ -52,7 +52,7 @@ public:
     > CurrentCv2xStatusEvent;
     typedef CommonAPI::Event<
         ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx
-    > CurrentCv2xStatusExEvent;
+    > Cv2xStatusExEvent;
     typedef CommonAPI::Event<
         uint32_t
     > CurrentL2AddrEvent;
@@ -131,7 +131,7 @@ public:
     virtual void injectVehicleSpeed(uint32_t _speed, CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, const CommonAPI::CallInfo *_info = nullptr) = 0;
     virtual std::future<CommonAPI::CallStatus> injectVehicleSpeedAsync(const uint32_t &_speed, InjectVehicleSpeedAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr) = 0;
     virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent() = 0;
-    virtual CurrentCv2xStatusExEvent& getCurrentCv2xStatusExEvent() = 0;
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent() = 0;
     virtual CurrentL2AddrEvent& getCurrentL2AddrEvent() = 0;
     virtual CurrentSpsOffsetEvent& getCurrentSpsOffsetEvent() = 0;
     virtual CurrentCapabilitiesEvent& getCurrentCapabilitiesEvent() = 0;

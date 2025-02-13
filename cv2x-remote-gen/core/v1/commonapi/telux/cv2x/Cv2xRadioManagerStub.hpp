@@ -59,10 +59,10 @@ class Cv2xRadioManagerStubAdapter
       public virtual ::v1::commonapi::telux::cv2x::Cv2xRadioTypesStubAdapter {
  public:
     /**
-    * Sends a broadcast event for currentCv2xStatus. Should not be called directly.
+    * Sends a broadcast event for cv2xStatusEx. Should not be called directly.
     * Instead, the "fire<broadcastName>Event" methods of the stub should be used.
     */
-    virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) = 0;
+    virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) = 0;
 
 
     virtual void deactivateManagedInstances() = 0;
@@ -125,14 +125,14 @@ public:
     }
     virtual const CommonAPI::Version& getInterfaceVersion(std::shared_ptr<CommonAPI::ClientId> _client) = 0;
 
-    /// This is the method that will be called on remote calls on the method GetServiceStatus.
-    virtual void GetServiceStatus(const std::shared_ptr<CommonAPI::ClientId> _client, GetServiceStatusReply_t _reply) = 0;
-    /// Sends a broadcast event for currentCv2xStatus.
-    virtual void fireCurrentCv2xStatusEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus &_status) {
+    /// Sends a broadcast event for cv2xStatusEx.
+    virtual void fireCv2xStatusExEvent(const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx &_statusEx) {
         auto stubAdapter = CommonAPI::Stub<Cv2xRadioManagerStubAdapter, Cv2xRadioManagerStubRemoteEvent>::stubAdapter_.lock();
         if (stubAdapter)
-            stubAdapter->fireCurrentCv2xStatusEvent(_status);
+            stubAdapter->fireCv2xStatusExEvent(_statusEx);
     }
+    /// This is the method that will be called on remote calls on the method GetServiceStatus.
+    virtual void GetServiceStatus(const std::shared_ptr<CommonAPI::ClientId> _client, GetServiceStatusReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method startCv2x.
     virtual void startCv2x(const std::shared_ptr<CommonAPI::ClientId> _client, startCv2xReply_t _reply) = 0;
     /// This is the method that will be called on remote calls on the method stopCv2x.

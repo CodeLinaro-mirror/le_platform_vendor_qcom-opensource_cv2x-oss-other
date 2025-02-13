@@ -48,8 +48,8 @@ class Cv2xRadioManagerProxyBase
     : virtual public ::v1::commonapi::telux::cv2x::Cv2xRadioTypesProxyBase {
 public:
     typedef CommonAPI::Event<
-        ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatus
-    > CurrentCv2xStatusEvent;
+        ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::Cv2xStatusEx
+    > Cv2xStatusExEvent;
 
     typedef std::function<void(const CommonAPI::CallStatus&, const ::v1::commonapi::telux::common::CommonDefines::ErrorCode&, const ::v1::commonapi::telux::common::CommonDefines::ServiceStatus&)> GetServiceStatusAsyncCallback;
     typedef std::function<void(const CommonAPI::CallStatus&, const ::v1::commonapi::telux::common::CommonDefines::ErrorCode&, const ::v1::commonapi::telux::common::CommonDefines::Status&)> StartCv2xAsyncCallback;
@@ -62,9 +62,9 @@ public:
     typedef std::function<void(const CommonAPI::CallStatus&, const ::v1::commonapi::telux::common::CommonDefines::ErrorCode&, const ::v1::commonapi::telux::cv2x::Cv2xRadioTypes::SlssRxInfo&, const ::v1::commonapi::telux::common::CommonDefines::Status&)> GetSlssRxInfoAsyncCallback;
     typedef std::function<void(const CommonAPI::CallStatus&, const ::v1::commonapi::telux::common::CommonDefines::ErrorCode&, const ::v1::commonapi::telux::common::CommonDefines::Status&)> InjectCoarseUtcTimeAsyncCallback;
 
+    virtual Cv2xStatusExEvent& getCv2xStatusExEvent() = 0;
     virtual void GetServiceStatus(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::ServiceStatus &_status, const CommonAPI::CallInfo *_info = nullptr) = 0;
     virtual std::future<CommonAPI::CallStatus> GetServiceStatusAsync(GetServiceStatusAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr) = 0;
-    virtual CurrentCv2xStatusEvent& getCurrentCv2xStatusEvent() = 0;
     virtual void startCv2x(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr) = 0;
     virtual std::future<CommonAPI::CallStatus> startCv2xAsync(StartCv2xAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr) = 0;
     virtual void stopCv2x(CommonAPI::CallStatus &_internalCallStatus, ::v1::commonapi::telux::common::CommonDefines::ErrorCode &_error, ::v1::commonapi::telux::common::CommonDefines::Status &_status, const CommonAPI::CallInfo *_info = nullptr) = 0;
